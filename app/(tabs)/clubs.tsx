@@ -16,7 +16,10 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Clubs Page</ThemedText>
+        <ThemedText type="title">These are the cutest men</ThemedText>
+      </ThemedView>
+      <ThemedView style={styles.stepContainer}>
+      <ThemedText type="subtitle">Give them kisses</ThemedText>
       </ThemedView>
     </ParallaxScrollView>
   );
