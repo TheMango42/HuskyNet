@@ -18,6 +18,9 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Events Page</ThemedText>
       </ThemedView>
+            <ThemedView style={styles.stepContainer}>
+            <ThemedText type="subtitle">This is example code</ThemedText>
+            </ThemedView>
     </ParallaxScrollView>
   );
 }

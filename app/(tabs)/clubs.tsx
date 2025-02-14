@@ -11,18 +11,20 @@ export default function HomeScreen() {
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
       headerImage={
         <Image
-          source={require('@/assets/images/cute_men.jpg')}
+          source={require('@/assets/images/huskyneticon.png')}
           style={styles.headerImage}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">These are the cutest men</ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-      <ThemedText type="subtitle">Give them kisses</ThemedText>
-      </ThemedView>
+        <ThemedView style={styles.titleContainer}>
+                <ThemedText type="title">Club Page</ThemedText>
+              </ThemedView>
+                    <ThemedView style={styles.stepContainer}>
+                    <ThemedText type="subtitle">This is example code</ThemedText>
+                    </ThemedView>
     </ParallaxScrollView>
   );
+
+  
 }
 
 const styles = StyleSheet.create({
