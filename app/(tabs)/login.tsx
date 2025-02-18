@@ -4,7 +4,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import {TextInput} from '@/components/LoginTextInput';
+import { TextInput } from '@/components/LoginTextInput';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { DarkTheme } from '@react-navigation/native';
 
@@ -32,6 +32,7 @@ export default function HomeScreen() {
                 placeholder="User"
                 type="email-address"
                 secure={false}
+                backgroundColor={{ dark: '#333333', light: '#ffffff' }}
                 >
 
             </TextInput>
@@ -39,22 +40,25 @@ export default function HomeScreen() {
         
             <TextInput
                 placeholder="Password"
+
                 type="default"
                 secure={true}
+                backgroundColor={{ dark: '#333333', light: '#ffffff' }}
+
                 >
 
             </TextInput>
 
             
             <ThemedView style={styles.button}>
-                <Button color='#111111' title="Login" /*color={'gray'}*/ onPress={() =>{} } />
+                <Button color='black' title="Login" /*color={'gray'}*/ onPress={() =>{} } />
             </ThemedView>
             
             
             <ThemedText >------------</ThemedText>
 
             <ThemedView style={styles.button}>
-                <Button title="Sign up" color="#111111" onPress={() => {}}></Button>
+                <Button title="Sign up" color="black" onPress={() => {}}></Button>
             </ThemedView>
 
 
@@ -63,7 +67,7 @@ export default function HomeScreen() {
             <ThemedText>------------</ThemedText>
 
             <ThemedView style={styles.button}>
-                <Button title="Forgot" color="#111111" onPress={() => {}}></Button>
+                <Button title="Forgot" color="#black" onPress={() => {}}></Button>
             </ThemedView>
 
             
@@ -107,8 +111,8 @@ const styles = StyleSheet.create({
         width: 80,
         height: 40,
         borderRadius: 50,
-        backgroundColor: '#555555',
-        borderColor: '#555555',
+        backgroundColor: 'gray',
+        borderColor: 'gray',
         marginTop: 10,
         marginBottom: 10,
     },
@@ -124,4 +128,5 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         
     },
+    
 });
