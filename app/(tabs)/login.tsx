@@ -1,17 +1,21 @@
 import { Image, StyleSheet, Platform, Button } from 'react-native';
-import { Text } from 'lucide-react';
-import { HelloWave } from '@/components/HelloWave';
+import { /*idk*/ } from '@react-navigation/native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { TextInput } from '@/components/LoginTextInput';
+import { TextInput } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import { DarkTheme } from '@react-navigation/native';
+import React from 'react';
+import { concatenate } from '@/scripts/ui-scripts/test-function';
+ 
 
 export default function HomeScreen() {
+    var [email, setEmail] = React.useState('');
+    var [password, setPassword] = React.useState('');
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }/*this color shows if image does not appear */}
       headerImage={
         <Image
           source={require('@/assets/images/news.jpg')}
@@ -29,50 +33,60 @@ export default function HomeScreen() {
            
             
             <TextInput
-                placeholder="User"
-                type="email-address"
-                secure={false}
-                backgroundColor={{ dark: '#333333', light: '#ffffff' }}
-                >
-
+                style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
+                id="outlined-basic"
+                placeholder="Username"
+                onChangeText={newText => setEmail(newText)}
+                value = {email}
+                selectionColor={'white'}
+            >
+                
             </TextInput>
 
+            {/* test function call
+            <ThemedText>{concatenate(email)}</ThemedText>
+            */}
         
             <TextInput
+                style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
                 placeholder="Password"
-
-                type="default"
-                secure={true}
-                backgroundColor={{ dark: '#333333', light: '#ffffff' }}
-
+                id="outlined-basic"
+                onChangeText={newText => setPassword(newText)}
+                value = {password}
+                secureTextEntry={true}
+                selectionColor={'black'}
                 >
 
             </TextInput>
 
             
             <ThemedView style={styles.button}>
-                <Button color='black' title="Login" /*color={'gray'}*/ onPress={() =>{} } />
+                <Button color='black' title="Login" onPress={() =>{
+                    // function with database call here -> then redirect to account(?) page with user data
+                    } } />
             </ThemedView>
             
             
-            <ThemedText >------------</ThemedText>
 
             <ThemedView style={styles.button}>
-                <Button title="Sign up" color="black" onPress={() => {}}></Button>
+                <Button title="Sign up" color="black" onPress={() => {
+                    // function to navigate to sign up page
+                }}></Button>
             </ThemedView>
 
 
 
             
-            <ThemedText>------------</ThemedText>
 
             <ThemedView style={styles.button}>
-                <Button title="Forgot" color="#black" onPress={() => {}}></Button>
+                <Button title="Forgot" color="#black" onPress={() => {
+                    // function to navigate to forgot password page
+                }}></Button>
             </ThemedView>
 
             
 
-        </ThemedView>// This is the end of the main container
+        </ThemedView>
         
         
 
@@ -128,5 +142,24 @@ const styles = StyleSheet.create({
         textDecorationLine: 'underline',
         
     },
-    
+    textInputLight: {
+        width: 200,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 3,
+        borderRadius: 15,
+        paddingHorizontal: 10,
+        margin: 10,
+        color: 'black',
+    },
+    textInputDark: {
+        width: 200,
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 3,
+        borderRadius: 15,
+        paddingHorizontal: 10,
+        margin: 10,
+        color: 'white',
+    }
 });
