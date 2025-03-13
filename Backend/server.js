@@ -15,7 +15,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-
   if (req.method === 'POST' && req.url === '/usrData') {
     let body = '';
 
