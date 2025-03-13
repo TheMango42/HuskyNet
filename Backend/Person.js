@@ -1,23 +1,17 @@
-import {
-    Graph,
-    serializeGraph,
-    deserializeGraph,
-    topologicalSort,
-    shortestPath,
-  } from 'graph-data-structure';
+
 class Person {
     #id = null;
     #name = null;
+    #username = null;
     #email = null;
     #password = null;
-    #following = null;
 
-    constructor(id,name,email,password) {
+    constructor(id,name, username,email,password) {
         this.#id = id;
         this.#name = name;
+        this.username = username;
         this.#email = email;
         this.#password = password;
-        this.#following = new Set();
     }
 
     getId() {
@@ -28,12 +22,12 @@ class Person {
         return this.#name;
     }
 
-    getEmail() {
-        return this.#email;
+    getUsername(){
+        return this.username;
     }
 
-    getFollowers() {
-        return this.#following;
+    getEmail() {
+        return this.#email;
     }
 
     #getPassword() {
@@ -55,10 +49,9 @@ class Person {
     #setPassword(password) {
         this.#password = password;
     }
-
-    follow(person) {
-        if (person != this) {
-            this.#following.add(person);
-        }
+    #setUsername(username){
+        this.#username = username;
     }
+
+    
 }
