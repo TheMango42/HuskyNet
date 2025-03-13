@@ -13,6 +13,27 @@ import { concatenate } from '@/scripts/ui-scripts/test-function';
 export default function HomeScreen() {
     var [email, setEmail] = React.useState('');
     var [password, setPassword] = React.useState('');
+    const getData = async () => {
+        try {
+          const res = await fetch('http://192.168.1.134:3306/usrData', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+              email: email,
+              password: password,
+            }),
+          })
+          .then(res => {
+            return res.json()
+          }).then(data => console.log(data));
+      
+          
+        } catch (e) {
+          console.error('Error during fetch:', e);
+        }
+    }
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }/*this color shows if image does not appear */}
@@ -61,9 +82,9 @@ export default function HomeScreen() {
 
             
             <ThemedView style={styles.button}>
-                <Button color='black' title="Login" onPress={() =>{
+                <Button color='black' title="Login" onPress= {getData}
                     // function with database call here -> then redirect to account(?) page with user data
-                    } } />
+                    />
             </ThemedView>
             
             

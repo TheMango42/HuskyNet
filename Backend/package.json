@@ -16,5 +16,9 @@
   "bugs": {
     "url": "https://github.com/TheMango42/HuskyNet/issues"
   },
-  "homepage": "https://github.com/TheMango42/HuskyNet#readme"
+  "homepage": "https://github.com/TheMango42/HuskyNet#readme",
+  "dependencies": {
+    "body-parser": "^1.20.3",
+    "express": "^4.21.2"
+  }
 }
