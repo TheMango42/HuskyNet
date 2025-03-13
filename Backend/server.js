@@ -15,12 +15,6 @@ const server = http.createServer((req, res) => {
     return;
   }
 
-  // Handle OPTIONS request (preflight check for CORS)
-  if (req.method === 'OPTIONS') {
-    res.writeHead(204);
-    res.end();
-    return;
-  }
 
   if (req.method === 'POST' && req.url === '/usrData') {
     let body = '';
