@@ -10,7 +10,7 @@ class Vertex{
     constructor( person ){
         this.#Hash = this.#hash(person);
         if(person instanceof Person){
-            this.person = person;
+            this.#person = person;
             this.#Hash = this.#hash(person);
         }
         this.#following = new Map();
