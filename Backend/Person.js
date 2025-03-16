@@ -9,7 +9,7 @@ class Person {
     constructor(id,name, username,email,password) {
         this.#id = id;
         this.#name = name;
-        this.username = username;
+        this.#username = username;
         this.#email = email;
         this.#password = password;
     }
@@ -23,33 +23,33 @@ class Person {
     }
 
     getUsername(){
-        return this.username;
+        return this.#username;
     }
 
     getEmail() {
         return this.#email;
     }
 
-    #getPassword() {
+    getPassword() {
         return this.#password;
     }
 
-    #setId(id) {
+    setId(id) {
         this.#id = id;
     }
 
-    #setName(name) {
+    setName(name) {
         this.#name = name;
     }
 
-    #setEmail(email) {
+    setEmail(email) {
         this.#email = email;
     }
 
-    #setPassword(password) {
+    setPassword(password) {
         this.#password = password;
     }
-    #setUsername(username){
+    setUsername(username){
         this.#username = username;
     }
 
