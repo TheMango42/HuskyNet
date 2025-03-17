@@ -2,7 +2,7 @@ class Club {
     #name = null;
     #members = 0;
     #president = null;
-    Club(name, president) {
+    constructor(name, president) {
         this.#name = name;
         this.#members = new Map();
         this.#president = president;
@@ -21,7 +21,7 @@ class Club {
     }
     addMember(member) {
         if(member instanceof Person) {
-            this.#members.set(member.getId(),member);
+            this.#members.set(member.getId(), member);
         }
     }
     setPresident(newPres) {

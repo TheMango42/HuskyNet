@@ -9,7 +9,7 @@ export default class Vertex {
     #followers = null;
     
 
-    Vertex(person) {
+    constructor(person) {
         if(person instanceof Person) {
             this.#person = person;
             this.#Hash = this.#hash(person.getId());
