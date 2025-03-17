@@ -1,28 +1,30 @@
-class Club{
+class Club {
     #name = null;
     #members = 0;
     #president = null;
-    Club(name, president){
+    Club(name, president) {
         this.#name = name;
         this.#members = new Map();
         this.#president = president;
     }
-    getName(){
+    getName() {
         return this.#name;
     }
-    getMembers(){
+    getMembers() {
         return this.#members;
     }
-    getPresident(){
+    getPresident() {
         return this.#president;
     }
-    setName(name){
+    setName(name) {
         this.#name = name;
     }
-    setMembers(members){
-        this.#members = members;
+    addMember(member) {
+        if(member instanceof Person) {
+            this.#members.set(member.getId(),member);
+        }
     }
-    setPresident(newPres){
+    setPresident(newPres) {
         this.#president = newPres;
     }
 }
