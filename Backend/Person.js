@@ -1,6 +1,6 @@
 
-class Person {
-    #id = null;
+export default class Person {
+    #id = 0;
     #name = null;
     #username = null;
     #email = null;

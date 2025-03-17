@@ -1,21 +1,21 @@
-import * as Person from "Person.js";
+import * as Person from "./Person.js";
 /*
 * The vertex that the graph will use to connect people in the main graph 
 */
-class Vertex extends Person{
+export default class Vertex{
     #Hash = null;
     #person = null;
     #following = null;
     #followers = null;
     
 
-    constructor( person ){
+    Vertex(person){
         if(person instanceof Person){
             this.#person = person;
-            this.#Hash = this.#hash(person);
+            this.#Hash = this.#hash(person.getId());
+            this.#following = new Map();
+            this.#followers = new Map();
         }
-        this.#following = new Map();
-        this.#followers = new Map();
     }
     
     getPerson(){
@@ -33,6 +33,7 @@ class Vertex extends Person{
     #hash( person ){
         return (person.getId()*13) % 31 + 3;
     }
+    
 }
 
 
