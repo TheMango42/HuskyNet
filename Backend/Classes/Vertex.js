@@ -2,7 +2,7 @@ import Person from "./Person.js";
 /*
 * The vertex that the graph will use to connect people in the main graph 
 */
-export default class Vertex {
+export default class Vertex{
     #Hash = null;
     #person = null;
     #following = null;
@@ -10,12 +10,15 @@ export default class Vertex {
     
 
     constructor(person) {
-        if(person instanceof Person) {
-            this.#person = person;
-            this.#Hash = this.#hash(person.getId());
-            this.#following = new Map();
-            this.#followers = new Map();
+        
+        if (!(person instanceof Person)) {
+            throw new Error("Vertex requires a Person instance.");
         }
+        this.#person = person;
+        this.#Hash = this.#hash(person);
+        this.#following = new Map();
+        this.#followers = new Map();
+        
     }
     
     getPerson() {
@@ -45,6 +48,9 @@ export default class Vertex {
     }
     
 }
+
+
+
 
 
 

@@ -1,37 +1,43 @@
 import Vertex from "./Vertex.js"
 
-export default class Profile extends Vertex{
-    p = this.getPerson();
+export default class Profile extends Vertex {
+    p = super.getPerson();
     #image = null;
     #discord = null;
-    #posts = null;
-    constructor(image, discord){
+    #posts = new Map();
+
+    constructor(image, discord) {
+        super(p); 
+
         this.#image = image;
         this.#discord = discord;
-        const following = this.getFollowing();
-        const followers = this.getFollowers();
-        this.#posts = new Map(); //map of posts made by the user but might need to be a different data structure
+        this.#posts = new Map(); 
     }
-    getFollowers(){
-        return this.followers;
+    getImage(){
+        return this.#image;
     }
-    getFollowing(){
-        return this.following;
+    getFollowers() {
+        return super.getFollowers(); 
     }
-    setImage(image){
+
+    getFollowing() {
+        return super.getFollowing();
+    }
+
+    setImage(image) {
         this.#image = image;
     }
-    setDiscord(discord){
+
+    setDiscord(discord) {
         this.#discord = discord;
     }
-    addPost(post){
-        this.#posts.set(post);
+
+    addPost(postId, postContent) {
+        this.#posts.set(postId, postContent); 
     }
-    
 
-
-
-
-
-
+    getPosts() {
+        return Array.from(this.#posts.values()); 
+    }
 }
+
