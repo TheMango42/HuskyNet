@@ -15,7 +15,7 @@ export default class Vertex{
             throw new Error("Vertex requires a Person instance.");
         }
         this.#person = person;
-        this.#Hash = this.#hash(person);
+        this.#Hash = this.hash(person);
         this.#following = new Map();
         this.#followers = new Map();
         
@@ -35,15 +35,15 @@ export default class Vertex{
     }
     addFollower(person) {
         if(person instanceof Person) {
-            this.#followers.set(person.getId(),person);
+            this.#followers.set(hash(person.getId()),person);
         }
     }
     addFollowing(person) {
         if(person instanceof Person) {
-            this.#following.set(person.getId(),person);
+            this.#following.set(hash(person.getId()),person);
         }
     }
-    #hash(person) {
+    hash(person) {
         return (person.getId()*13) % 31 + 3;
     }
     
