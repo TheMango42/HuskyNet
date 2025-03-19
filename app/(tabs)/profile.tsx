@@ -1,30 +1,62 @@
-import { StyleSheet, Image, Platform, Text, ScrollView } from 'react-native';
+import { StyleSheet, Image, Platform, Text, ScrollView, View } from 'react-native';
 
 import { ExternalLink } from '@/components/ExternalLink';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import { IconSymbol } from '@/components/ui/IconSymbol';
 
 export default function TabTwoScreen() {
   return (
-    <ScrollView>
+    <View
+    style={[
+      styles.container,
+      { 
+        flexDirection: 'column',
+      },
+
+    ]}
+    >
+      <Image
+      source={require('@/assets/images/clubs.jpg')}
+      style={styles.headerImage}/>
+
+    <View
+    style={[
+      styles.container,
+      { 
+        flexDirection: 'column',
+      },
+
+    ]}
+    >
+      
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Profile Name</ThemedText>
       </ThemedView>
       <ThemedText type="defaultSemiBold">*** Followers  *** Following</ThemedText>
       
       <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">DiscordUsername</ThemedText>
+          <ThemedText type="link">Discord Username</ThemedText>
         </ExternalLink>
       
-    </ScrollView>
+    </View>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    gap: 8,
+    padding: 20,
+  },
+  profileImage: {
+    
+  },
+  headerImage: {
+    width: '100%',
+    height: 200,
+    resizeMode: 'cover',
+  },
+  container: {
+    flex: 1,
+    padding: 20
   },
 });
