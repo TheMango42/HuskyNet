@@ -2,7 +2,7 @@ import { Image, StyleSheet, Platform } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
-import { FeedComponent } from '@/components/FeedComponent';
+import { PostComponent } from '@/components/PostComponent';
 
 export default function HomeScreen() {
   return (
@@ -15,10 +15,10 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <FeedComponent/>  
-        <FeedComponent/>  
-        <FeedComponent/>
-        <FeedComponent/>
+        <PostComponent id={'000001'}/>  
+        <PostComponent id={'000002'}/>  
+        <PostComponent id={'000003'}/>  
+        <PostComponent id={'000004'}/>  
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -27,7 +27,7 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'column',
-    gap: 20,
+    gap: 30,
   },
   stepContainer: {
     gap: 8,

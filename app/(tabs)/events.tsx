@@ -3,7 +3,7 @@ import { Image, StyleSheet, Platform } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
-import {FeedComponent} from '@/components/FeedComponent';
+import {PostComponent} from '@/components/PostComponent';
 
 export default function HomeScreen() {
   //vars not being used yet
