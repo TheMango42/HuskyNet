@@ -5,9 +5,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { TextInput } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { DarkTheme } from '@react-navigation/native';
 import React from 'react';
-import { concatenate } from '@/scripts/ui-scripts/test-function';
  
 
 export default function HomeScreen() {
@@ -43,9 +41,9 @@ export default function HomeScreen() {
                 
             </TextInput>
 
-            {/* test function call
-            <ThemedText>{concatenate(email)}</ThemedText>
-            */}
+             test function call
+            <ThemedText>{}</ThemedText>
+            
         
             <TextInput
                 style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
@@ -62,7 +60,7 @@ export default function HomeScreen() {
             
             <ThemedView style={styles.button}>
                 <Button color='black' title="Login" onPress={() =>{
-                    // function with database call here -> then redirect to account(?) page with user data
+                    // function with database call here -> then redirect to profile page with user data
                     } } />
             </ThemedView>
             
