@@ -7,6 +7,13 @@ import { ThemedView } from '@/components/ThemedView';
 import {FeedComponent} from '@/components/FeedComponent';
 
 export default function HomeScreen() {
+  //vars not being used yet
+  var profileName = "Name";
+  var datePosted = "Date Posted";
+  var postText = "Post Text";
+  var postImage = require('../assets/images/post_example.jpeg');
+
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
