@@ -18,7 +18,7 @@ export default class Club {
         return this.#name;
     }
     getMembers() {
-        return this.#members;
+        return Array.from(this.#members.values());
     }
     getPresident() {
         return this.#president;

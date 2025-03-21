@@ -1,16 +1,10 @@
-import Club from "./Club.js"
-class Event extends Club{
-    
+class Event {
     #name = null;
     #date = null;
     #time = null;
     #location = null;
     #description = null;
-    constructor(club, name, date, time, location, description) {
-        if (!(club instanceof Club)) {
-            throw new Error("Club must be an instance of Club.");
-        }
-        super(club.getName(), club.getPresident());
+    constructor(name, date, time, location, description) {
         this.#name = name;
         this.#date = date;
         this.#time = time;
