@@ -4,6 +4,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import {FeedComponent} from '@/components/FeedComponent';
 
 export default function HomeScreen() {
   return (
@@ -18,6 +19,11 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Events Page</ThemedText>
       </ThemedView>
+
+      <FeedComponent/>  
+      <FeedComponent/>  
+      <FeedComponent/>
+      <FeedComponent/>
     </ParallaxScrollView>
   );
 }
