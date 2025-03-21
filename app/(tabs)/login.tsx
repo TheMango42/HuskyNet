@@ -5,9 +5,7 @@ import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { TextInput } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
-import { DarkTheme } from '@react-navigation/native';
 import React from 'react';
-import { concatenate } from '@/scripts/ui-scripts/test-function';
  
 
 export default function HomeScreen() {
@@ -15,7 +13,7 @@ export default function HomeScreen() {
     var [password, setPassword] = React.useState('');
     const getData = async () => {
         try {
-          const res = await fetch('http://192.168.1.134:3306/usrData', {
+          const res = await fetch('http://47.6.38.141:3306/', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',
@@ -64,9 +62,9 @@ export default function HomeScreen() {
                 
             </TextInput>
 
-            {/* test function call
-            <ThemedText>{concatenate(email)}</ThemedText>
-            */}
+             test function call
+            <ThemedText>{}</ThemedText>
+            
         
             <TextInput
                 style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
