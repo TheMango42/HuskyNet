@@ -19,7 +19,7 @@ export default class Profile extends Vertex {
     getFollowers() {
         return super.getFollowers(); 
     }
-
+    
     getFollowing() {
         return super.getFollowing();
     }

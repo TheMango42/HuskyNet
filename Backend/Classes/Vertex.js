@@ -25,10 +25,10 @@ export default class Vertex{
         return this.#person;
     }
     getFollowers() {
-        return this.#followers;
+        return Array.from(this.#followers.values());
     }
     getFollowing() {
-        return this.#following;
+        return Array.from(this.#following.values());
     }
     getHash() {
         return this.#Hash;
