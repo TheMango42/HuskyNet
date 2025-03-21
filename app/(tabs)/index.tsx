@@ -3,35 +3,35 @@ import { Image, StyleSheet, Platform, TextInput } from 'react-native';
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
-import { FeedComponent } from '@/components/FeedComponent';
+import { PostComponent } from '@/components/PostComponent';
 
 export default function HomeScreen() {
   return (
-  <ParallaxScrollView
-     headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-    headerImage = {
-      <Image
-        source={require('@/assets/images/index.jpg')}
-        style={styles.headerImage}
-      />
-    }>
-    <ThemedView style={styles.titleContainer}>
-    <ThemedView style={styles.textInputLight}>
-      <TextInput placeholder="Search"></TextInput>
-    </ThemedView>
-      <FeedComponent/>  
-      <FeedComponent/>  
-      <FeedComponent/>
-      <FeedComponent/>
-    </ThemedView>
-  </ParallaxScrollView>
-);
+    <ParallaxScrollView
+      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+      headerImage={
+        <Image
+          source={require('@/assets/images/index.jpg')}
+          style={styles.headerImage}
+        />
+      }>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedView style={styles.textInputLight}>
+          <TextInput placeholder="Search"></TextInput>
+        </ThemedView>
+        <PostComponent id={'000001'}/>  
+        <PostComponent id={'000002'}/>  
+        <PostComponent id={'000003'}/>  
+        <PostComponent id={'000004'}/>  
+      </ThemedView>
+    </ParallaxScrollView>
+  );
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'column',
-    gap: 20,
+    gap: 30,
   },
   stepContainer: {
     gap: 8,

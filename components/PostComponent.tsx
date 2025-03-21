@@ -1,18 +1,19 @@
 
 import {View, Text, StyleSheet, Image} from 'react-native';
 import React from 'react';
-import { ThemedView } from './ThemedView';
-import { Button } from 'react-native';
 import { AntDesign } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
-export const FeedComponent = () => {
+
+type PostID = {
+    id: string,
+}
+
+export function PostComponent(props: PostID){
 return (
     <View style = {styles.postContainer}>
         <View style = {styles.profileContainer}>
             <Image source = {require('../assets/images/feedProfileImg.jpeg')} style = {styles.profileImage}/>
         </View>
-        
-
         
         <View style={styles.postInfo}>
             <Text style = {styles.poster}>**Name**</Text>
