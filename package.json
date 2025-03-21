@@ -31,6 +31,7 @@
     "expo-system-ui": "~4.0.8",
     "expo-web-browser": "~14.0.2",
     "framer-motion": "^12.0.11",
+    "graph-data-structure": "^4.5.0",
     "lucide-react": "^0.474.0",
     "react": "18.3.1",
     "react-dom": "18.3.1",
