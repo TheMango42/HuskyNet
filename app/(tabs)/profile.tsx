@@ -6,57 +6,57 @@ import { ThemedView } from '@/components/ThemedView';
 
 export default function TabTwoScreen() {
   return (
-    <View
-    style={[
-      styles.container,
-      { 
-        flexDirection: 'column',
-      },
-
-    ]}
+    <ThemedView
+      style={[
+        styles.container,
+        {
+          flexDirection: 'column',
+        },
+      ]}
     >
-      <Image
-      source={require('@/assets/images/clubs.jpg')}
-      style={styles.headerImage}/>
+      <View
+        style={[
+          styles.profileContainer,
+          {
+            flexDirection: 'row',
+          },
+        ]}>
+        <Image
+          source={require('@/assets/images/profilepic.png')}
+          style={styles.profileImage} />
 
-    <View
-    style={[
-      styles.container,
-      { 
-        flexDirection: 'column',
-      },
-
-    ]}
-    >
-      
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Profile Name</ThemedText>
-      </ThemedView>
-      <ThemedText type="defaultSemiBold">*** Followers  *** Following</ThemedText>
-      
-      <ExternalLink href="https://reactnative.dev/docs/images">
-          <ThemedText type="link">Discord Username</ThemedText>
-        </ExternalLink>
-      
-    </View>
-    </View>
+        <View style={styles.titleContainer}>
+          <ThemedText style={styles.profileName}>Profile Name</ThemedText>
+          <ThemedText type="defaultSemiBold">*** Followers  *** Following</ThemedText>
+          <ExternalLink href="https://reactnative.dev/docs/images">
+            <ThemedText type="link">Discord Username</ThemedText>
+          </ExternalLink>
+        </View>
+      </View>
+      <ThemedText style={styles.profileName}>Posts</ThemedText>
+    </ThemedView>
   );
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
-    padding: 20,
-  },
-  profileImage: {
-    
-  },
-  headerImage: {
     width: '100%',
-    height: 200,
-    resizeMode: 'cover',
+    padding: 25
+    },
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 150 / 2
   },
-  container: {
-    flex: 1,
+  profileName: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginBottom: 10
+  },
+  profileContainer: {
     padding: 20
   },
+  container: {
+    padding: 20
+  }
 });

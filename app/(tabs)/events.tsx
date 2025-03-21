@@ -1,6 +1,5 @@
 import { Image, StyleSheet, Platform } from 'react-native';
 
-import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -11,7 +10,7 @@ export default function HomeScreen() {
   var profileName = "Name";
   var datePosted = "Date Posted";
   var postText = "Post Text";
-  var postImage = require('../assets/images/post_example.jpeg');
+  var postImage = require('@/assets/images/post_example.jpeg');
 
 
   return (
@@ -26,11 +25,6 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Events Page</ThemedText>
       </ThemedView>
-
-      <FeedComponent/>  
-      <FeedComponent/>  
-      <FeedComponent/>
-      <FeedComponent/>
     </ParallaxScrollView>
   );
 }
