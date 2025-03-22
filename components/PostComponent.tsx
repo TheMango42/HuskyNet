@@ -1,5 +1,5 @@
 
-import {View, Text, StyleSheet, Image} from 'react-native';
+import {View, Text, StyleSheet, Image, useColorScheme} from 'react-native';
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
@@ -16,12 +16,12 @@ return (
         </View>
         
         <View style={styles.postInfo}>
-            <Text style = {styles.poster}>**Name**</Text>
-            <Text style = {styles.dateText}>**Date Posted**</Text>
+            <Text style = {[useColorScheme() === 'dark' ?  styles.usernameDark : styles.usernameLight]}>**Name**</Text>
+            <Text style = {[useColorScheme() === 'dark' ?  styles.dateDark : styles.dateLight]}>**Date Posted**</Text>
         </View>
         
         <View style = {styles.postContents}>
-            <Text style = {styles.postText}>**Post Text**</Text>
+            <Text style = {[useColorScheme() === 'dark' ?  styles.postTextDark : styles.postTextLight]}>**Post Text**</Text>
             <Image source = {require('../assets/images/post_example.jpeg')} style = {styles.postImage}/>
         </View>
 
@@ -29,20 +29,20 @@ return (
 
             <Pressable onPress={() => alert('Liked!')}>
                 <View style = {styles.likeButton}>
-                    <AntDesign name="like2" size={24} color="black" />
+                    <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
                 </View>
             </Pressable>
 
             <Pressable onPress={() => alert('Commented!')}>
                 <View style = {styles.likeButton}>
-                    <AntDesign name="message1" size={24} color="black" />
+                    <AntDesign name="message1" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
                 </View>
             </Pressable>
 
 
             <Pressable onPress={() => alert('Shared!')}>
                 <View style = {styles.likeButton}>
-                    <AntDesign name="doubleright" size={24} color="black" />
+                    <AntDesign name="doubleright" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
                 </View>
             </Pressable>
         </View>
@@ -56,9 +56,10 @@ return (
 const styles = StyleSheet.create({
     postContainer: {
         padding: 20,
-        backgroundColor: 'gray',
+        backgroundColor: 'transparent',
         borderRadius: 10,
-        
+        borderColor: 'gray',
+        borderWidth: 3,
     },
     likeButton: {
         marginRight: 10,
@@ -68,8 +69,13 @@ const styles = StyleSheet.create({
         //justifyContent: 'left',
         marginTop: 10,
     },
-    poster: {
+    usernameDark: {
         fontSize: 20,
+        color: '#D3D3D3',
+    },
+    usernameLight: {
+        fontSize: 20,
+        color: 'black',
     },
     postImage: {
         width: '100%',
@@ -83,8 +89,13 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: 10,
     },
-    dateText: {
-        fontSize: 12,
+    dateDark: {
+        fontSize: 16,
+        color: '#D3D3D3',
+    },
+    dateLight: {
+        fontSize: 16,
+        color: 'black',
     },
     postContents: {
         
@@ -93,9 +104,13 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         gap: 8,
     },
-    postText: {
+    postTextLight: {
         fontSize: 16,
         color: 'black',
+    },
+    postTextDark: {
+        fontSize: 16,
+        color: '#D3D3D3',
     },
     profileImage: {
         width: 50,

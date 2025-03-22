@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, Button } from 'react-native';
+import { Image, StyleSheet, Platform, Button, TouchableOpacity } from 'react-native';
 import { /*idk*/ } from '@react-navigation/native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -6,6 +6,7 @@ import { ThemedView } from '@/components/ThemedView';
 import { TextInput } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
+import Pressable from '@/components/ui/Pressable';
  
 
 export default function HomeScreen() {
@@ -55,6 +56,7 @@ export default function HomeScreen() {
                 style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
                 id="outlined-basic"
                 placeholder="Username"
+                keyboardType='email-address'
                 onChangeText={newText => setEmail(newText)}
                 value = {email}
                 selectionColor={'white'}
@@ -62,13 +64,14 @@ export default function HomeScreen() {
                 
             </TextInput>
 
-             test function call
+            {/*test function call*/}
             <ThemedText>{}</ThemedText>
             
         
             <TextInput
                 style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
                 placeholder="Password"
+                keyboardType='default'
                 id="outlined-basic"
                 onChangeText={newText => setPassword(newText)}
                 value = {password}
@@ -79,28 +82,52 @@ export default function HomeScreen() {
             </TextInput>
 
             
-            <ThemedView style={styles.button}>
-                <Button color='black' title="Login" onPress= {getData}
-                    // function with database call here -> then redirect to account(?) page with user data
-                    />
+            <ThemedView >
+                <Pressable 
+                    style={styles.button} 
+                    activeOpacity={0.5}
+                    onPress= {() => {getData()}}
+                    >
+                    {/// function with database call here -> then redirect to account(?) page with user data
+                    } 
+                    <ThemedText style = {styles.defaultText}>
+                      Log In
+                    </ThemedText>
+                </Pressable>
             </ThemedView>
             
             
 
-            <ThemedView style={styles.button}>
-                <Button title="Sign up" color="black" onPress={() => {
-                    // function to navigate to sign up page
-                }}></Button>
+            <ThemedView >
+                <Pressable 
+                    style={styles.button} 
+                    activeOpacity={0.5}
+                    onPress= {() => {}}
+                    >
+                    {/// function with database call here -> then redirect to account(?) page with user data
+                    } 
+                    <ThemedText style = {styles.defaultText}>
+                      Sign Up
+                    </ThemedText>
+                </Pressable>
             </ThemedView>
 
 
 
             
 
-            <ThemedView style={styles.button}>
-                <Button title="Forgot" color="#black" onPress={() => {
-                    // function to navigate to forgot password page
-                }}></Button>
+            <ThemedView >
+                <Pressable 
+                    style={styles.button} 
+                    activeOpacity={0.5}
+                    onPress= {() => {}}
+                    >
+                    {/// function with database call here -> then redirect to account(?) page with user data
+                    } 
+                    <ThemedText style = {styles.defaultText}>
+                      Forgot
+                    </ThemedText>
+                </Pressable>
             </ThemedView>
 
             
@@ -141,6 +168,8 @@ const styles = StyleSheet.create({
     },
 
     button: {
+        alignItems: 'center',
+        justifyContent: 'center',
         width: 80,
         height: 40,
         borderRadius: 50,
@@ -180,5 +209,9 @@ const styles = StyleSheet.create({
         paddingHorizontal: 10,
         margin: 10,
         color: 'white',
+    },
+    defaultText: {
+        color: 'black',
+        fontSize: 18,
     }
 });
