@@ -90,7 +90,7 @@ export default function HomeScreen() {
                     >
                     {/// function with database call here -> then redirect to account(?) page with user data
                     } 
-                    <ThemedText style = {styles.defaultText}>
+                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
                       Log In
                     </ThemedText>
                 </Pressable>
@@ -106,7 +106,7 @@ export default function HomeScreen() {
                     >
                     {/// function with database call here -> then redirect to account(?) page with user data
                     } 
-                    <ThemedText style = {styles.defaultText}>
+                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
                       Sign Up
                     </ThemedText>
                 </Pressable>
@@ -124,7 +124,7 @@ export default function HomeScreen() {
                     >
                     {/// function with database call here -> then redirect to account(?) page with user data
                     } 
-                    <ThemedText style = {styles.defaultText}>
+                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
                       Forgot
                     </ThemedText>
                 </Pressable>
