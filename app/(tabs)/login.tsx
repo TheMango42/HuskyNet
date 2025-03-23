@@ -90,7 +90,7 @@ export default function HomeScreen() {
                     >
                     {/// function with database call here -> then redirect to account(?) page with user data
                     } 
-                    <ThemedText style = {styles.defaultText}>
+                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
                       Log In
                     </ThemedText>
                 </Pressable>
@@ -106,7 +106,7 @@ export default function HomeScreen() {
                     >
                     {/// function with database call here -> then redirect to account(?) page with user data
                     } 
-                    <ThemedText style = {styles.defaultText}>
+                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
                       Sign Up
                     </ThemedText>
                 </Pressable>
@@ -124,7 +124,7 @@ export default function HomeScreen() {
                     >
                     {/// function with database call here -> then redirect to account(?) page with user data
                     } 
-                    <ThemedText style = {styles.defaultText}>
+                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
                       Forgot
                     </ThemedText>
                 </Pressable>
@@ -166,7 +166,6 @@ const styles = StyleSheet.create({
         resizeMode: "cover", // Makes the image fit while covering
         position: 'absolute',
     },
-
     button: {
         alignItems: 'center',
         justifyContent: 'center',
@@ -184,11 +183,6 @@ const styles = StyleSheet.create({
         gap: 8,
         height: 0,
 
-    },
-    linkText: {
-        color: '#007AFF',
-        textDecorationLine: 'underline',
-        
     },
     textInputLight: {
         width: 200,
@@ -210,8 +204,4 @@ const styles = StyleSheet.create({
         margin: 10,
         color: 'white',
     },
-    defaultText: {
-        color: 'black',
-        fontSize: 18,
-    }
 });
