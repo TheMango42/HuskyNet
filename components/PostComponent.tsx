@@ -3,9 +3,15 @@ import {View, Text, StyleSheet, Image, useColorScheme} from 'react-native';
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
 import { Pressable } from 'react-native';
+import { ThemedText } from './ThemedText';
 
 type PostID = {
     id: string,
+}
+
+type FeedItems = {
+    text: string,
+    lightText: "Black",
 }
 
 export function PostComponent(props: PostID){
@@ -13,11 +19,10 @@ return (
     <View style = {styles.postContainer}>
         <View style = {styles.profileContainer}>
             <Image source = {require('../assets/images/feedProfileImg.jpeg')} style = {styles.profileImage}/>
-        </View>
-        
-        <View style={styles.postInfo}>
-            <Text style = {[useColorScheme() === 'dark' ?  styles.usernameDark : styles.usernameLight]}>**Name**</Text>
-            <Text style = {[useColorScheme() === 'dark' ?  styles.dateDark : styles.dateLight]}>**Date Posted**</Text>
+            <View style={styles.postInfo}>
+                <ThemedText type="defaultSemiBold">**Name**</ThemedText>
+                <ThemedText>**Date Posted**</ThemedText>
+            </View>
         </View>
         
         <View style = {styles.postContents}>
@@ -47,26 +52,38 @@ return (
             </Pressable>
         </View>
     </View>
-
-    
-
 )
+}
+
+function feedButton(props: FeedItems){
+    return (
+        <Pressable onPress={() => alert('Liked!')}>
+            <View style = {styles.likeButton}>
+                <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
+            </View>
+        </Pressable>
+    )
 }
 
 const styles = StyleSheet.create({
     postContainer: {
         padding: 20,
-        backgroundColor: 'transparent',
+        backgroundColor: '#21232A',
         borderRadius: 10,
-        borderColor: 'gray',
-        borderWidth: 3,
+        borderWidth: 0,
     },
-    likeButton: {
-        marginRight: 10,
-    },
-    feedButtons: {
+    profileContainer: {
         flexDirection: 'row',
-        //justifyContent: 'left',
+        gap: 8,
+    },
+    profileImage: {
+        width: 60,
+        height: 60,
+        borderRadius: 30,
+    },
+    postInfo: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
         marginTop: 10,
     },
     usernameDark: {
@@ -76,18 +93,6 @@ const styles = StyleSheet.create({
     usernameLight: {
         fontSize: 20,
         color: 'black',
-    },
-    postImage: {
-        width: '100%',
-        height: 200,
-        resizeMode: 'cover',
-        borderRadius: 10,
-        marginTop: 10,
-    },
-    postInfo: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        marginTop: 10,
     },
     dateDark: {
         fontSize: 16,
@@ -100,27 +105,29 @@ const styles = StyleSheet.create({
     postContents: {
         
     },
-    profileContainer: {
-        flexDirection: 'row',
-        gap: 8,
-    },
     postTextLight: {
+        marginTop: 10,
         fontSize: 16,
         color: 'black',
     },
     postTextDark: {
+        marginTop: 20,
         fontSize: 16,
         color: '#D3D3D3',
     },
-    profileImage: {
-        width: 50,
-        height: 50,
-        borderRadius: 25,
-    },
-    headerImage: {
+    postImage: {
         width: '100%',
         height: 200,
         resizeMode: 'cover',
+        borderRadius: 10,
+        marginTop: 10,
+    },
+    feedButtons: {
+        flexDirection: 'row',
+        marginTop: 10,
+    },
+    likeButton: {
+        marginRight: 10,
     },
     container: {
         flex: 1,

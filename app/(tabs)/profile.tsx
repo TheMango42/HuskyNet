@@ -3,6 +3,7 @@ import { StyleSheet, Image, Platform, Text, ScrollView, View } from 'react-nativ
 import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { PostComponent } from '@/components/PostComponent';
 
 export default function TabTwoScreen() {
   return (
@@ -34,6 +35,7 @@ export default function TabTwoScreen() {
         </View>
       </View>
       <ThemedText style={styles.profileName}>Posts</ThemedText>
+      <PostComponent id={'000001'}/>
     </ThemedView>
   );
 }
