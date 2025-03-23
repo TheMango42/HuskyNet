@@ -11,6 +11,7 @@ type PostID = {
 
 type FeedItems = {
     text: string,
+    darkText: "#D3D3D3",
     lightText: "Black",
 }
 
@@ -31,7 +32,6 @@ return (
         </View>
 
         <View style = {styles.feedButtons}>
-
             <Pressable onPress={() => alert('Liked!')}>
                 <View style = {styles.likeButton}>
                     <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
@@ -57,7 +57,7 @@ return (
 
 function feedButton(props: FeedItems){
     return (
-        <Pressable onPress={() => alert('Liked!')}>
+        <Pressable onPress={() => alert(FeedItems)}>
             <View style = {styles.likeButton}>
                 <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
             </View>

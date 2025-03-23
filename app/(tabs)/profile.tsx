@@ -4,9 +4,11 @@ import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { PostComponent } from '@/components/PostComponent';
+import ParallaxScrollView from '@/components/ParallaxScrollView';
 
 export default function TabTwoScreen() {
   return (
+    <ScrollView>
     <ThemedView
       style={[
         styles.container,
@@ -35,12 +37,21 @@ export default function TabTwoScreen() {
         </View>
       </View>
       <ThemedText style={styles.profileName}>Posts</ThemedText>
-      <PostComponent id={'000001'}/>
+        <PostComponent id={'000001'}/>
+        <PostComponent id={'000002'}/>
+        <PostComponent id={'000003'}/>
     </ThemedView>
+    </ScrollView>
   );
 }
 
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({ 
+  headerImage: {
+    width: "100%",
+    height: "100%",
+    resizeMode: "cover", // Makes the image fit while covering
+    position: 'absolute',
+  },
   titleContainer: {
     width: '100%',
     padding: 25
@@ -59,6 +70,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   container: {
-    padding: 20
+    padding: 20,
+    gap: 20
   }
 });
