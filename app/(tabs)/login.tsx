@@ -166,7 +166,6 @@ const styles = StyleSheet.create({
         resizeMode: "cover", // Makes the image fit while covering
         position: 'absolute',
     },
-
     button: {
         alignItems: 'center',
         justifyContent: 'center',
@@ -184,11 +183,6 @@ const styles = StyleSheet.create({
         gap: 8,
         height: 0,
 
-    },
-    linkText: {
-        color: '#007AFF',
-        textDecorationLine: 'underline',
-        
     },
     textInputLight: {
         width: 200,
@@ -210,8 +204,4 @@ const styles = StyleSheet.create({
         margin: 10,
         color: 'white',
     },
-    defaultText: {
-        color: 'black',
-        fontSize: 18,
-    }
 });
