@@ -1,14 +1,9 @@
-import Vertex from "./Vertex.js"
-
-export default class Profile extends Vertex {
-    p = super.getPerson();
+export default class Profile  {
     #image = null;
     #discord = null;
-    #posts = new Map();
+    #posts = null;
 
-    constructor(image, discord) {
-        super(p); 
-
+    constructor(image, discord) { 
         this.#image = image;
         this.#discord = discord;
         this.#posts = new Map(); 
@@ -16,14 +11,9 @@ export default class Profile extends Vertex {
     getImage(){
         return this.#image;
     }
-    getFollowers() {
-        return super.getFollowers(); 
+    getDiscord(){
+        return this.#discord;
     }
-    
-    getFollowing() {
-        return super.getFollowing();
-    }
-
     setImage(image) {
         this.#image = image;
     }

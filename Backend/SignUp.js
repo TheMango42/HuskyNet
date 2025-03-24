@@ -20,10 +20,10 @@ export default class SignUp{
     // takes in split email array and returns 1 if good and returns 0 if bad
     static verify(email){
         if (email[1] === 'mtu.edu'){
-            return 1;
+            return true;
         }
         else{
-            return 0;
+            return false;
         }
     }
 }

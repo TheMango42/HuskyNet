@@ -1,4 +1,5 @@
 import Person from "./Person.js";
+import Profile from "./Profile.js";
 /*
 * The vertex that the graph will use to connect people in the main graph 
 */
@@ -7,13 +8,14 @@ export default class Vertex{
     #person = null;
     #following = null;
     #followers = null;
-    
+    #profile = null;
 
-    constructor(person) {
+    constructor(person, image, discord) {
         
         if (!(person instanceof Person)) {
             throw new Error("Vertex requires a Person instance.");
         }
+        this.#profile = new Profile(image, discord);
         this.#person = person;
         this.#Hash = this.hash(person);
         this.#following = new Map();
@@ -23,6 +25,9 @@ export default class Vertex{
     
     getPerson() {
         return this.#person;
+    }
+    getProfile(){
+        return this.#profile;
     }
     getFollowers() {
         return Array.from(this.#followers.values());
@@ -34,13 +39,13 @@ export default class Vertex{
         return this.#Hash;
     }
     addFollower(person) {
-        if(person instanceof Person) {
-            this.#followers.set(hash(person.getId()),person);
+        if(person instanceof Person && person != this.#person) {
+            this.#followers.set(this.hash(person),person);
         }
     }
     addFollowing(person) {
-        if(person instanceof Person) {
-            this.#following.set(hash(person.getId()),person);
+        if(person instanceof Person && person != this.#person) {
+            this.#following.set(this.hash(person),person);
         }
     }
     hash(person) {
