@@ -2,17 +2,21 @@
 import {View, Text, StyleSheet, Image, useColorScheme} from 'react-native';
 import React from 'react';
 import { AntDesign } from '@expo/vector-icons';
-import { Pressable } from 'react-native';
+import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
 
 type PostID = {
     id: string,
 }
 
+import { IconProps } from '@expo/vector-icons/build/createIconSet';
+
 type FeedItems = {
     text: string,
     darkText: "#D3D3D3",
     lightText: "Black",
+    icon: IconProps<any>['name'],//just string does not work. threw errors bc it expects specific string literals. AI fixed
+    activeOpacity: number,
 }
 
 export function PostComponent(props: PostID){
@@ -32,24 +36,26 @@ return (
         </View>
 
         <View style = {styles.feedButtons}>
-            <Pressable onPress={() => alert('Liked!')}>
-                <View style = {styles.likeButton}>
-                    <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
-                </View>
-            </Pressable>
-
-            <Pressable onPress={() => alert('Commented!')}>
-                <View style = {styles.likeButton}>
-                    <AntDesign name="message1" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
-                </View>
-            </Pressable>
 
 
-            <Pressable onPress={() => alert('Shared!')}>
-                <View style = {styles.likeButton}>
-                    <AntDesign name="doubleright" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
-                </View>
-            </Pressable>
+            {feedButton({text: 'Liked', 
+                        darkText: "#D3D3D3", 
+                        lightText: "Black", 
+                        icon: "like2", 
+                        activeOpacity: 0.5})}            
+
+            {feedButton({text: 'Commented', 
+                        darkText: "#D3D3D3", 
+                        lightText: "Black", 
+                        icon: "message1", 
+                        activeOpacity: 0.5})}            
+
+            {feedButton({text: 'Shared', 
+                        darkText: "#D3D3D3", 
+                        lightText: "Black", 
+                        icon: "doubleright", 
+                        activeOpacity: 0.5})}
+            
         </View>
     </View>
 )
@@ -57,9 +63,9 @@ return (
 
 function feedButton(props: FeedItems){
     return (
-        <Pressable onPress={() => alert(FeedItems)}>
+        <Pressable onPress={() => alert(props.text)} activeOpacity={props.activeOpacity}>
             <View style = {styles.likeButton}>
-                <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
+                <AntDesign name= {props.icon} size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
             </View>
         </Pressable>
     )
