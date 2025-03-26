@@ -4,7 +4,6 @@ import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { PostComponent } from '@/components/PostComponent';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
 
 export default function TabTwoScreen() {
   return (
@@ -28,15 +27,15 @@ export default function TabTwoScreen() {
           source={require('@/assets/images/profilepic.png')}
           style={styles.profileImage} />
 
-        <View style={styles.titleContainer}>
-          <ThemedText style={styles.profileName}>Profile Name</ThemedText>
+        <View style={styles.profileInfoContainer}>
+          <ThemedText style={styles.profileName}>Brayden Gilland</ThemedText>
           <ThemedText type="defaultSemiBold">*** Followers  *** Following</ThemedText>
           <ExternalLink href="https://reactnative.dev/docs/images">
             <ThemedText type="link">Discord Username</ThemedText>
           </ExternalLink>
         </View>
       </View>
-      <ThemedText style={styles.profileName}>Posts</ThemedText>
+      <ThemedText>Posts, clubs, and events bar</ThemedText>
         <PostComponent id={'000001'}/>
         <PostComponent id={'000002'}/>
         <PostComponent id={'000003'}/>
@@ -46,30 +45,28 @@ export default function TabTwoScreen() {
 }
 
 const styles = StyleSheet.create({ 
-  headerImage: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover", // Makes the image fit while covering
-    position: 'absolute',
-  },
-  titleContainer: {
+  profileInfoContainer: {
     width: '100%',
-    padding: 25
+    padding: '3.5%',
+    justifyContent: 'center',
     },
   profileImage: {
-    width: 150,
-    height: 150,
-    borderRadius: 150 / 2
+    width: 120,
+    height: 120,
+    borderRadius: 120 / 2
   },
   profileName: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 10
+    marginBottom: 10,
+    flexWrap: 'wrap',
   },
   profileContainer: {
-    padding: 20
+    padding: 0,
+    marginTop: 40
   },
   container: {
+    flex: 1,
     padding: 20,
     gap: 20
   }

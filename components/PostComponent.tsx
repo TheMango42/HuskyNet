@@ -25,13 +25,13 @@ return (
         <View style = {styles.profileContainer}>
             <Image source = {require('@/assets/images/profilepic.png')} style = {styles.profileImage}/>
             <View style={styles.postInfo}>
-                <ThemedText type="defaultSemiBold">**Name**</ThemedText>
-                <ThemedText>**Date Posted**</ThemedText>
+                <ThemedText type="defaultSemiBold">Brayden Gilland</ThemedText>
+                <ThemedText>2 days ago</ThemedText>
             </View>
         </View>
         
         <View style = {styles.postContents}>
-            <Text style = {[useColorScheme() === 'dark' ?  styles.postTextDark : styles.postTextLight]}>**Post Text**</Text>
+            <Text style = {[useColorScheme() === 'dark' ?  styles.postTextDark : styles.postTextLight]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
             <Image source = {require('@/assets/images/post_example.jpeg')} style = {styles.postImage}/>
         </View>
 
@@ -63,7 +63,7 @@ return (
 
 function feedButton(props: FeedItems){
     return (
-        <Pressable onPress={() => alert(FeedItems)}>
+        <Pressable onPress={() => props.text}>
             <View style = {styles.likeButton}>
                 <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
             </View>
@@ -73,7 +73,7 @@ function feedButton(props: FeedItems){
 
 const styles = StyleSheet.create({
     postContainer: {
-        padding: 30,
+        padding: "4%",
         backgroundColor: '#21232A',
         borderRadius: 20,
         borderWidth: 0,
@@ -87,7 +87,6 @@ const styles = StyleSheet.create({
     },
     profileContainer: {
         flexDirection: 'row',
-        alignItems: 'flex-start',
         gap: 8,
     },
     profileImage: {
@@ -97,7 +96,8 @@ const styles = StyleSheet.create({
     },
     postInfo: {
         flexDirection: 'column',
-        marginTop: 10,
+        justifyContent: 'flex-start',
+        padding: '0.5%',
     },
     usernameDark: {
         fontSize: 20,
