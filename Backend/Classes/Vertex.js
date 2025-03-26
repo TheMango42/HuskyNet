@@ -49,7 +49,7 @@ export default class Vertex{
         }
     }
     hash(person) {
-        return (person.getId()*13) % 31 + 3;
+        return ((parseInt(person.getId())*13) % 3148245) + 3;
     }
     
 }
