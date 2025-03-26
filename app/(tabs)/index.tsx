@@ -4,6 +4,7 @@ import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
 import { PostComponent } from '@/components/PostComponent';
+import { ThemedText } from '@/components/ThemedText';
 
 export default function HomeScreen() {
   return (
@@ -14,8 +15,10 @@ export default function HomeScreen() {
           source={require('@/assets/images/index.jpg')}
           style={styles.headerImage}
         />
+
       }>
-      <ThemedView style={styles.titleContainer}>
+
+      <ThemedView style={styles.stepContainer}>
         <ThemedView style={styles.textInputLight}>
           <TextInput placeholder="Search"></TextInput>
         </ThemedView>
@@ -30,12 +33,11 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'column',
+    alignItems: 'center',
     gap: 30,
   },
   stepContainer: {
-    gap: 8,
-    marginBottom: 8,
+    gap: 20,
   },
   headerImage: {
     width: "100%",

@@ -63,9 +63,9 @@ return (
 
 function feedButton(props: FeedItems){
     return (
-        <Pressable onPress={() => alert(props.text)} activeOpacity={props.activeOpacity}>
+        <Pressable onPress={() => alert(FeedItems)}>
             <View style = {styles.likeButton}>
-                <AntDesign name= {props.icon} size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
+                <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
             </View>
         </Pressable>
     )
@@ -73,13 +73,21 @@ function feedButton(props: FeedItems){
 
 const styles = StyleSheet.create({
     postContainer: {
-        padding: 20,
+        padding: 30,
         backgroundColor: '#21232A',
-        borderRadius: 10,
+        borderRadius: 20,
         borderWidth: 0,
+
+        /*Shadows*/
+        shadowColor: '#000',
+        shadowOffset: { width: 0, height: 1 },
+        shadowOpacity: 0.8,
+        shadowRadius: 5,  
+        elevation: 10 // Android
     },
     profileContainer: {
         flexDirection: 'row',
+        alignItems: 'flex-start',
         gap: 8,
     },
     profileImage: {
@@ -89,7 +97,6 @@ const styles = StyleSheet.create({
     },
     postInfo: {
         flexDirection: 'column',
-        justifyContent: 'space-between',
         marginTop: 10,
     },
     usernameDark: {
