@@ -8,6 +8,8 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import { DarkTheme } from '@react-navigation/native';
 import React from 'react';
 import { concatenate } from '@/scripts/ui-scripts/test-function';
+import Pressable from '@/components/ui/Pressable';
+import {router} from 'expo-router';
 
 export default function frontPage() {
     var [email, setEmail] = React.useState('');
@@ -75,7 +77,7 @@ export default function frontPage() {
 
                     <TextInput
                        style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
-                       placeholder="Name"
+                       placeholder="Username"
                        id="outlined-basic"
                        onChangeText={newText => setName(newText)}
                        value = {name}
@@ -84,90 +86,116 @@ export default function frontPage() {
                        >
                         </TextInput>
                         
-                                    
-                                    <ThemedView style={styles.button}>
-                                        <Button color='black' title="Submit" onPress= {getData}
-                                            //Button should finallize account creation
-                                            />
-                                    </ThemedView>
+                        <ThemedView >
+              <Pressable 
+                style={styles.link}
+                activeOpacity={0.5}
+                onPress= {() => {router.push('/(tabs)/login')}}
+              >
+                <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
+                  Already Have An Account?
+                </ThemedText>
+              </Pressable>
+            </ThemedView>
 
-                                    <ThemedView style={styles.button}>
-                                        <Button title="Help" color="#black" onPress={() => {
-                                            // Eventually create a help tab to assist with user creation.
-                                            //Very unimportant
-                                        }}></Button>
-                                    </ThemedView>    
-                                  </ThemedView>
+            <ThemedView >
+                <Pressable 
+                    style={styles.button} 
+                    activeOpacity={0.5}
+                    onPress= {() => {getData()}}
+                    >
+                    {
+                      //Finalize account creation
+                    } 
+                    <ThemedText darkColor='#black' lightColor='black' type = 'defaultSemiBold'>
+                      SUBMIT
+                    </ThemedText>
+                </Pressable>
+            </ThemedView>
 
-                            </ParallaxScrollView>
-                          );
+            <ThemedView >
+                <Pressable 
+                    style={styles.button} 
+                    activeOpacity={0.5}
+                    onPress= {() => {getData()}}
+                    >
+                    {//Transfer to a help page when we design that
+                    } 
+                    <ThemedText darkColor='#black' lightColor='black' type = 'defaultSemiBold'>
+                      HELP
+                    </ThemedText>
+                </Pressable>
+            </ThemedView>
+
+          </ThemedView>
+  </ParallaxScrollView>
+);
 }
 const styles = StyleSheet.create({
-    mainContainer: {
-        
-        position: 'relative',
-        alignItems: 'center',
-        
-    },
-    titleContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-        //marginBottom:32,
-    },
-    stepContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-        marginTop: 8,
-        marginBottom: 8,
-    },
-    headerImage: {
-        width: "100%",
-        height: "100%",
-        resizeMode: "cover", // Makes the image fit while covering
-        position: 'absolute',
-    },
+  mainContainer: {
+      
+    alignItems: 'center',        
+      
+  },
+  titleContainer: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 8,
+      marginBottom:10,
+  },
+  stepContainer: {
+      flexDirection: 'column',
+      alignItems: 'center',
+      gap: 8,
+      marginTop: 8,
+      marginBottom: 8,
+  },
+  headerImage: {
+      width: "100%",
+      height: "100%",
+      resizeMode: "cover", // Makes the image fit while covering
+      position: 'absolute',
+  },
+  button: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      width: 100,
+      height: 40,
+      borderRadius: 20,
+      backgroundColor: '#ffcd00',
+      borderColor: 'gray',
+      marginTop: 50,
+      marginBottom: 10,
+  },
+  link: {
 
-    button: {
-        width: 80,
-        height: 40,
-        borderRadius: 50,
-        backgroundColor: 'gray',
-        borderColor: 'gray',
-        marginTop: 10,
-        marginBottom: 10,
-    },
-    textContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-        height: 0,
-
-    },
-    linkText: {
-        color: '#007AFF',
-        textDecorationLine: 'underline',
-        
-    },
-    textInputLight: {
-        width: 200,
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 3,
-        borderRadius: 15,
-        paddingHorizontal: 10,
-        margin: 10,
-        color: 'black',
-    },
-    textInputDark: {
-        width: 200,
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 3,
-        borderRadius: 15,
-        paddingHorizontal: 10,
-        margin: 10,
-        color: 'white',
-    }
+  },
+  textContainer: {
+      
+  },
+  textInputLight: {
+      width: 250,
+      height: 40,
+      //borderColor: '',
+      backgroundColor: '#d3d3d3',
+      //borderWidth: 3,
+      borderRadius: 15,
+      paddingHorizontal: 10,
+      margin: 10,
+      color: 'black',
+  },
+  textInputDark: {
+    width: 250,
+    height: 40,
+    //borderColor: '',
+    backgroundColor: '#21232A',
+    //borderWidth: 3,
+    borderRadius: 15,
+    paddingHorizontal: 10,
+    marginBottom: 10,
+    color: 'white',
+  },
+  spacer: {
+      marginTop: 100,
+  }
 });
