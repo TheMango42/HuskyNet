@@ -1,3 +1,15 @@
+/*
+  SignUp Class
+  - has a few methods to parse the email, verify the email, and turn the email into an ID
+  
+  Methods:
+  - emailSplit(email) returns : Array[emailBefore@, emailAfter@]
+  - emailToAscii(emailBefore@) returns : ID String
+  - verify(emailAfter@) returns : boolean
+
+  notes 3/26
+  - 
+*/
 export default class SignUp{
 
     static emailSplit(email){
