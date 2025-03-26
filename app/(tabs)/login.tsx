@@ -1,5 +1,17 @@
-import { Image, StyleSheet, Platform, Button, TouchableOpacity } from 'react-native';
-import { /*idk*/ } from '@react-navigation/native';
+/*
+  Login page
+  - User inputs email and password, or has the option to go to sign up.
+   
+
+  notes 3/25
+  - Maybe user should be able to reset password here?
+  - TextInput fields are messy. Should make component since they're used in multiple places
+  - Button is already a component (Pressable), however maybe the styling should be included with the component for consistency.
+*/
+
+
+
+import { Image, StyleSheet } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -7,6 +19,7 @@ import { TextInput } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
+import { router } from 'expo-router';
  
 
 export default function HomeScreen() {
@@ -33,6 +46,8 @@ export default function HomeScreen() {
           console.error('Error during fetch:', e);
         }
     }
+
+
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }/*this color shows if image does not appear */}
@@ -45,13 +60,12 @@ export default function HomeScreen() {
         <ThemedView style={styles.mainContainer}>
             
             <ThemedView style={styles.titleContainer}>
-                <ThemedText type="title">Login</ThemedText>
+                <ThemedText type="title">Welcome</ThemedText>
             </ThemedView>
 
             
-
            
-            
+            <ThemedView style={styles.stepContainer}>
             <TextInput
                 style={[useColorScheme() === 'dark' ?  styles.textInputDark : styles.textInputLight]}
                 id="outlined-basic"
@@ -59,13 +73,14 @@ export default function HomeScreen() {
                 keyboardType='email-address'
                 onChangeText={newText => setEmail(newText)}
                 value = {email}
-                selectionColor={'white'}
+                selectionColor={useColorScheme() === 'dark' ?  'white' : 'black'}
             >
                 
             </TextInput>
 
-            {/*test function call*/}
+            {/*test function call
             <ThemedText>{}</ThemedText>
+            */}
             
         
             <TextInput
@@ -76,12 +91,15 @@ export default function HomeScreen() {
                 onChangeText={newText => setPassword(newText)}
                 value = {password}
                 secureTextEntry={true}
-                selectionColor={'black'}
+                selectionColor={useColorScheme() === 'dark' ?  'white' : 'black'}
                 >
 
             </TextInput>
-
+            </ThemedView>
             
+
+
+            {/*Pressables*/}
             <ThemedView >
                 <Pressable 
                     style={styles.button} 
@@ -90,52 +108,34 @@ export default function HomeScreen() {
                     >
                     {/// function with database call here -> then redirect to account(?) page with user data
                     } 
-                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
-                      Log In
+                    <ThemedText darkColor='#black' lightColor='black' type = 'defaultSemiBold'>
+                      LOGIN
                     </ThemedText>
                 </Pressable>
             </ThemedView>
             
             
-
-            <ThemedView >
-                <Pressable 
-                    style={styles.button} 
-                    activeOpacity={0.5}
-                    onPress= {() => {}}
-                    >
-                    {/// function with database call here -> then redirect to account(?) page with user data
-                    } 
-                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
-                      Sign Up
-                    </ThemedText>
-                </Pressable>
-            </ThemedView>
-
-
-
             
 
             <ThemedView >
-                <Pressable 
-                    style={styles.button} 
-                    activeOpacity={0.5}
-                    onPress= {() => {}}
-                    >
-                    {/// function with database call here -> then redirect to account(?) page with user data
-                    } 
-                    <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
-                      Forgot
-                    </ThemedText>
-                </Pressable>
+              <Pressable 
+                style={styles.link}
+                activeOpacity={0.5}
+                onPress= {() => {router.push('/(tabs)/signUp')}}
+              >
+                <ThemedText darkColor='#D3D3D3' lightColor='black' type = 'default'>
+                  Don't have an account? Sign Up
+                </ThemedText>
+              </Pressable>
             </ThemedView>
+
+
+            
 
             
 
         </ThemedView>
         
-        
-
     </ParallaxScrollView>
   );
 }
@@ -143,15 +143,14 @@ export default function HomeScreen() {
 const styles = StyleSheet.create({
     mainContainer: {
         
-        position: 'relative',
-        alignItems: 'center',
+      alignItems: 'center',        
         
     },
     titleContainer: {
         flexDirection: 'column',
         alignItems: 'center',
         gap: 8,
-        //marginBottom:32,
+        marginBottom:10,
     },
     stepContainer: {
         flexDirection: 'column',
@@ -169,39 +168,43 @@ const styles = StyleSheet.create({
     button: {
         alignItems: 'center',
         justifyContent: 'center',
-        width: 80,
+        width: 100,
         height: 40,
-        borderRadius: 50,
-        backgroundColor: 'gray',
+        borderRadius: 20,
+        backgroundColor: '#ffcd00',
         borderColor: 'gray',
-        marginTop: 10,
+        marginTop: 50,
         marginBottom: 10,
     },
-    textContainer: {
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: 8,
-        height: 0,
+    link: {
 
     },
+    textContainer: {
+        
+    },
     textInputLight: {
-        width: 200,
+        width: 250,
         height: 40,
-        borderColor: 'gray',
-        borderWidth: 3,
+        //borderColor: '',
+        backgroundColor: '#d3d3d3',
+        //borderWidth: 3,
         borderRadius: 15,
         paddingHorizontal: 10,
         margin: 10,
         color: 'black',
     },
     textInputDark: {
-        width: 200,
-        height: 40,
-        borderColor: 'gray',
-        borderWidth: 3,
-        borderRadius: 15,
-        paddingHorizontal: 10,
-        margin: 10,
-        color: 'white',
+      width: 250,
+      height: 40,
+      //borderColor: '',
+      backgroundColor: '#21232A',
+      //borderWidth: 3,
+      borderRadius: 15,
+      paddingHorizontal: 10,
+      marginBottom: 10,
+      color: 'white',
     },
+    spacer: {
+        marginTop: 100,
+    }
 });
