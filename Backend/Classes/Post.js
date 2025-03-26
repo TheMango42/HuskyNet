@@ -1,4 +1,16 @@
-class Post{
+/*
+  Post Class
+  - Holds the data for each created post
+  
+  Variables:
+  - postId : String
+  - image : String
+  - description : String
+
+  notes 3/26
+  - idk if images are stored as strings I'm just guessing
+*/
+export default class Post{
     #postid = null;
     #image = null;
     #description = null;  

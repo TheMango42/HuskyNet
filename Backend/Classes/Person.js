@@ -1,6 +1,19 @@
+/*
+  Person Class
+  - Holds the data for each user
+  
+  Variables:
+  - id : String
+  - name : String
+  - username : String
+  - email : String
+  - password : String
 
+  notes 3/26
+  - 
+*/
 export default class Person {
-    #id = 0;
+    #id = null;
     #name = null;
     #username = null;
     #email = null;

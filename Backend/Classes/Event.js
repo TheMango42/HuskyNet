@@ -1,4 +1,19 @@
-class Event {
+/*
+  Event Class
+  - Holds the data for each event that is made by each club or person
+  
+  Variables:
+  - name : String
+  - date : String
+  - time : String
+  - location : String
+  - Description : String
+
+
+  notes 3/26
+  - May have to change this a bit in the future
+*/
+export default class Event {
     #name = null;
     #date = null;
     #time = null;

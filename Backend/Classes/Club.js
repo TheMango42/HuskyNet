@@ -1,5 +1,16 @@
 import Vertex from "./Vertex.js"
+/*
+  Club Class
+  - Holds the data for each created club
+  
+  Variables:
+  - name : String
+  - members : Map<Vertex.getHash(), Vertex>
+  - president : Vertex
 
+  notes 3/26
+  - there might be more things that need to be stored in this class but I'm not sure
+*/
 export default class Club {
     #name = null;
     #members = null;

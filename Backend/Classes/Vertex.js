@@ -1,7 +1,16 @@
 import Person from "./Person.js";
 import Profile from "./Profile.js";
 /*
-* The vertex that the graph will use to connect people in the main graph 
+  Vertex Class
+  - Holds the data for each created Person
+  
+  Variables:
+  - Hash : Integer
+  - person : Person
+  - president : Vertex
+
+  notes 3/26
+  - there might be more things that need to be stored in this class but I'm not sure
 */
 export default class Vertex{
     #Hash = null;
