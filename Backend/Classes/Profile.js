@@ -8,6 +8,11 @@ import Post from "./Post.js"
   - discord : String
   - posts : Map<postId, Post>()
 
+  Methods:
+  - getters and setters for all variables
+  - addPost(post) : returns Boolean for if it succeded or not
+
+
   notes 3/26
   - there might be more things that need to be stored in this class but I'm not sure
 */
@@ -35,8 +40,12 @@ export default class Profile  {
         this.#discord = discord;
     }
 
-    addPost(postId, Post) {
-        this.#posts.set(postId, postContent); 
+    addPost(post) {
+        if(post instanceof Post){
+            this.#posts.set(post.getPostId, post); 
+            return true;
+        }
+        return false;
     }
 
     getPosts() {

@@ -32,7 +32,7 @@ export default class Post{
     getDescription(){
         return this.#description;
     }
-    setImage(){
-        
+    setImage(image){
+        this.#image = image
     }
 }

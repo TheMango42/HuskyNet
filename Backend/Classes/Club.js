@@ -8,6 +8,11 @@ import Vertex from "./Vertex.js"
   - members : Map<Vertex.getHash(), Vertex>
   - president : Vertex
 
+  Methods:
+  - getters and setters for all variables
+  - addMembers(member)
+  - setPresident(newpres) : returns true if successful
+
   notes 3/26
   - there might be more things that need to be stored in this class but I'm not sure
 */
@@ -50,8 +55,9 @@ export default class Club {
     }
     setPresident(newPres) {
         if (!(newPres instanceof Vertex)) {
-            throw new Error("President must be an instance of Vertex.");
+            return false;
         }
         this.#president = newPres;
+        return true;
     }
 }

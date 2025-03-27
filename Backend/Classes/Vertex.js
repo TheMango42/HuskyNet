@@ -7,7 +7,15 @@ import Profile from "./Profile.js";
   Variables:
   - Hash : Integer
   - person : Person
-  - president : Vertex
+  - following : Map<Vertex.getHash(), Vertex>()
+  - followers : Map<Vertex.getHash(), Vertex>()
+  - profile : Profile
+  
+  Methods: 
+  - getters and setters for all vaiables 
+  - addFollower(person) :  returns Boolean for if it fails
+  - addFollowing(person) :  returns Boolean for if it fails
+  - hash(person) : returns Integer used for Hash variable
 
   notes 3/26
   - there might be more things that need to be stored in this class but I'm not sure
@@ -50,12 +58,16 @@ export default class Vertex{
     addFollower(person) {
         if(person instanceof Person && person != this.#person) {
             this.#followers.set(this.hash(person),person);
+            return true;
         }
+        return false;
     }
     addFollowing(person) {
         if(person instanceof Person && person != this.#person) {
             this.#following.set(this.hash(person),person);
+            return true;
         }
+        return false;
     }
     hash(person) {
         return ((parseInt(person.getId())*13) % 3148245) + 3;

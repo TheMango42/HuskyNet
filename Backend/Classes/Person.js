@@ -8,6 +8,8 @@
   - username : String
   - email : String
   - password : String
+  Methods:
+  - getters and setters for all variables
 
   notes 3/26
   - 
