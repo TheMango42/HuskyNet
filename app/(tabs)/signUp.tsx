@@ -138,12 +138,14 @@ const styles = StyleSheet.create({
   },
 
   button: {
-    width: 80,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 100,
     height: 40,
-    borderRadius: 50,
-    backgroundColor: 'gray',
-    borderColor: 'gray',
-    marginTop: 10,
+    borderRadius: 20,
+    backgroundColor: '#ffcd00',
+    borderColor: 'yellow',
+    marginTop: 50,
     marginBottom: 10,
   },
   textContainer: {
