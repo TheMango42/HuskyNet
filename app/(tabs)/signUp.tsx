@@ -49,7 +49,6 @@ export default function frontPage() {
           <ThemedText type="title">Sign Up</ThemedText>
         </ThemedView>
 
-
         <TextInput
           style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
           id="outlined-basic"
@@ -70,6 +69,7 @@ export default function frontPage() {
           selectionColor={'black'}
         >
         </TextInput>
+
         <TextInput
           style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
           placeholder="Username"
@@ -93,9 +93,9 @@ export default function frontPage() {
             //Very unimportant
           }}></Button>
         </ThemedView>
-        <ThemedView >
+
+        <ThemedView style={styles.link}>
           <TouchableOpacity
-            style={styles.link}
             activeOpacity={0.5}
             onPress={() => { router.push('/(tabs)/login') }}
           >
@@ -104,6 +104,7 @@ export default function frontPage() {
             </ThemedText>
           </TouchableOpacity>
         </ThemedView>
+
       </ThemedView>
 
     </ParallaxScrollView>
@@ -157,7 +158,8 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
   link: {
-
+    justifyContent: 'flex-end',
+    alignItems: 'center',
   },
   textInputLight: {
     width: 200,

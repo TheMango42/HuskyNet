@@ -59,8 +59,6 @@ export default function HomeScreen() {
           <ThemedText type="title">Welcome</ThemedText>
         </ThemedView>
 
-
-
         <ThemedView style={styles.stepContainer}>
           <TextInput
             style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
@@ -161,9 +159,6 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   link: {
-
-  },
-  textContainer: {
 
   },
   textInputLight: {
