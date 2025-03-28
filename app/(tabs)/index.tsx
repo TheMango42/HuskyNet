@@ -20,7 +20,7 @@ export default function HomeScreen() {
       }>
 
       <ThemedView style={styles.stepContainer}>
-        <ThemedView style={styles.textInputLight}>
+        <ThemedView>
           <Search></Search>
         </ThemedView>
         <PostComponent id={'000001'}/>  

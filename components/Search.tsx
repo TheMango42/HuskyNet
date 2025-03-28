@@ -1,4 +1,4 @@
-import {View, Text, TextInput, StyleSheet, Image, useColorScheme} from 'react-native';
+import {View, Text, TextInput, StyleSheet, useColorScheme} from 'react-native';
 import React from 'react';
 
 export function Search() {
