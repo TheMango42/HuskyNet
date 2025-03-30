@@ -19,10 +19,6 @@ export default class Post{
         this.#image = image;
         this.#description = description;
     }
-    constructor(id, description){
-        this.#postid = id;
-        this.#description = description;
-    }
     getPostId(){
         return this.#postid;
     }

@@ -16,10 +16,6 @@ export default class Edge {
         this.#isClubManager = isClubManager;
         this.#vertices = new Array(from, to);
     }
-    constructor(from, to){
-        this.#isClubManager = false;
-        this.#vertices = new Array(from, to);
-    }
     getVertices(){
         return this.#vertices;
     }
