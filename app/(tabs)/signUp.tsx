@@ -1,11 +1,11 @@
-import { Image, StyleSheet, Button, Pressable, TouchableOpacity } from 'react-native';
-import { /*idk*/ } from '@react-navigation/native';
+import { Image, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { TextInput } from 'react-native';
 import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
+import Pressable from '@/components/ui/Pressable';
 import { router } from 'expo-router';
 
 export default function frontPage() {
@@ -81,21 +81,37 @@ export default function frontPage() {
         >
         </TextInput>
 
-        <ThemedView style={styles.button}>
-          <Button color='black' title="Submit" onPress={getData}
-          //Button should finallize account creation
-          />
+        <ThemedView >
+          <Pressable
+            style={styles.button}
+            activeOpacity={0.5}
+            onPress={() => { getData() }}
+          >
+            {/// function with database call here -> then redirect to account(?) page with user data
+            }
+            <ThemedText darkColor='#black' lightColor='black' type='defaultSemiBold'>
+              SIGN UP
+            </ThemedText>
+          </Pressable>
         </ThemedView>
 
-        <ThemedView style={styles.button}>
-          <Button title="Help" color="#black" onPress={() => {
-            // Eventually create a help tab to assist with user creation.
-            //Very unimportant
-          }}></Button>
+        <ThemedView >
+          <Pressable
+            style={styles.button}
+            activeOpacity={0.5}
+            onPress={() => { getData() }}
+          >
+            {/// Should eventully lead to a help page.
+            }
+            <ThemedText darkColor='#black' lightColor='black' type='defaultSemiBold'>
+              HELP
+            </ThemedText>
+          </Pressable>
         </ThemedView>
 
-        <ThemedView style={styles.link}>
+        <ThemedView>
           <TouchableOpacity
+            style={styles.link}
             activeOpacity={0.5}
             onPress={() => { router.push('/(tabs)/login') }}
           >
@@ -113,7 +129,6 @@ export default function frontPage() {
 const styles = StyleSheet.create({
   mainContainer: {
 
-    position: 'relative',
     alignItems: 'center',
 
   },
@@ -121,7 +136,7 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     alignItems: 'center',
     gap: 8,
-    //marginBottom:32,
+    marginBottom: 10,
   },
   stepContainer: {
     flexDirection: 'column',
@@ -136,51 +151,43 @@ const styles = StyleSheet.create({
     resizeMode: "cover", // Makes the image fit while covering
     position: 'absolute',
   },
-
   button: {
-        alignItems: 'center',
+    alignItems: 'center',
     justifyContent: 'center',
     width: 100,
     height: 40,
     borderRadius: 20,
     backgroundColor: '#ffcd00',
     borderColor: 'yellow',
-    marginTop: 10,
+    marginTop: 50,
     marginBottom: 10,
   },
-  textContainer: {
-    flexDirection: 'column',
-    alignItems: 'center',
-    gap: 8,
-    height: 0,
+  link: {
 
   },
-  linkText: {
-    color: '#007AFF',
-    textDecorationLine: 'underline',
-  },
-  link: {
-    justifyContent: 'flex-end',
-    alignItems: 'center',
-  },
   textInputLight: {
-    width: 200,
+    width: 250,
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 3,
+    //borderColor: '',
+    backgroundColor: '#d3d3d3',
+    //borderWidth: 3,
     borderRadius: 15,
     paddingHorizontal: 10,
     margin: 10,
     color: 'black',
   },
   textInputDark: {
-    width: 200,
+    width: 250,
     height: 40,
-    borderColor: 'gray',
-    borderWidth: 3,
+    //borderColor: '',
+    backgroundColor: '#21232A',
+    //borderWidth: 3,
     borderRadius: 15,
     paddingHorizontal: 10,
-    margin: 10,
+    marginBottom: 10,
     color: 'white',
+  },
+  spacer: {
+    marginTop: 100,
   }
 });
