@@ -1,16 +1,10 @@
-export function isLiked(postId, userId) {
-    if (userId.equals(postId)) {
-        return true;
-    } else {
-        return false;
-    }
 import Vertex from "Backend\\Classes\\Vertex.js"
 import Post from "Backend\\Classes\\Post.js"
 import Club from "Backend\\Casses\\Club.js"
 import Event from "Backend\\Classes\\Event.js"
 /*
-  Vertex Class
-  - Holds the data for each created Person
+  Post Functions
+  - holds the functions for posts
   
   Variables:
   - Hash : Integer
@@ -21,18 +15,24 @@ import Event from "Backend\\Classes\\Event.js"
   
  Functions: 
  - likeCounter(postId) : returns Boolean for if it succeeded
- - isLiked()
+ - isLiked(postId, UserId) : returns Boolean for if User Has liked that post
 
   notes 3/26
   - how do we record what userID likes the post? is that a frontend thing or a backend thing?
 */
+
+export function isLiked(postId, userId) {
+    if (userId.equals(postId)) {
+        return true;
+    } else {
+        return false;
+    }
+  }
+
 export default function likeCounter(postId){
 
   if (post instanceof Post){
     post.setLikes(post.getLikes() + 1)
   }
 }
-export default function isLiked(postId, userId) {
-  //how do we record what userID likes the post? is that a frontend thing or a backend thing?
-  return false;
-}
+
