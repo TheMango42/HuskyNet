@@ -1,23 +1,25 @@
 
 import {View, Text, StyleSheet, Image, useColorScheme} from 'react-native';
 import React from 'react';
-import { AntDesign } from '@expo/vector-icons';
 import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
+import { IconSymbol } from './ui/IconSymbol';
 
 type PostID = {
     id: string,
 }
 
-import { IconProps } from '@expo/vector-icons/build/createIconSet';
-
 type FeedItems = {
     text: string,
     darkText: "#D3D3D3",
     lightText: "Black",
-    icon: IconProps<any>['name'],//just string does not work. threw errors bc it expects specific string literals. AI fixed
+    icon: string,
     activeOpacity: number,
 }
+
+const textColors = () => {
+    return useColorScheme() === 'dark' ? '#D3D3D3' : 'black';
+  };
 
 export function PostComponent(props: PostID){
 return (
@@ -36,39 +38,28 @@ return (
         </View>
 
         <View style = {styles.feedButtons}>
-
-
-            {feedButton({text: 'Liked', 
-                        darkText: "#D3D3D3", 
-                        lightText: "Black", 
-                        icon: "like2", 
-                        activeOpacity: 0.5})}            
-
-            {feedButton({text: 'Commented', 
-                        darkText: "#D3D3D3", 
-                        lightText: "Black", 
-                        icon: "message1", 
-                        activeOpacity: 0.5})}            
-
-            {feedButton({text: 'Shared', 
-                        darkText: "#D3D3D3", 
-                        lightText: "Black", 
-                        icon: "doubleright", 
-                        activeOpacity: 0.5})}
-            
+        <Pressable onPress={() => 'Liked!'} activeOpacity={0.5}>
+            <View style = {styles.interactButton}>
+                if(isLiked() == true){
+                    <IconSymbol name='hand.thumbsup.fill' size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'} />
+                } else {
+                    <IconSymbol name='hand.thumbsup' size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'}/>
+                }
+            </View>
+        </Pressable>
+        <Pressable onPress={() => 'Commented!'} activeOpacity={0.5}>
+            <View style = {styles.interactButton}>
+                <IconSymbol name={'bubble'} size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'} />
+            </View>
+        </Pressable>
+        <Pressable onPress={() => 'Shared!'} activeOpacity={0.5}>
+            <View style = {styles.interactButton}>
+                <IconSymbol name={'paperplane'} size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'} />
+            </View>
+        </Pressable>         
         </View>
     </View>
 )
-}
-
-function feedButton(props: FeedItems){
-    return (
-        <Pressable onPress={() => props.text}>
-            <View style = {styles.likeButton}>
-                <AntDesign name="like2" size={24} color={useColorScheme() === 'dark' ? "#D3D3D3" : "black"} />
-            </View>
-        </Pressable>
-    )
 }
 
 const styles = StyleSheet.create({
@@ -139,7 +130,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         marginTop: 10,
     },
-    likeButton: {
+    interactButton: {
         marginRight: 10,
     },
     container: {
