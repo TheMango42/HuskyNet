@@ -40,12 +40,10 @@ export default class Profile  {
         this.#discord = discord;
     }
 
-    addPost(post) {
-        if(post instanceof Post){
+    addPost(image, description) {
+        const post = new Post(id, image, description);
             this.#posts.set(post.getPostId, post); 
             return true;
-        }
-        return false;
     }
 
     getPosts() {

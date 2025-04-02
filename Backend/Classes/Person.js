@@ -15,7 +15,7 @@
   - 
 */
 export default class Person {
-    #id = null;
+    #id = null; // comes from the email
     #name = null;
     #username = null;
     #email = null;

@@ -24,7 +24,7 @@ export default function HomeScreen() {
   var [password, setPassword] = React.useState('');
   const getData = async () => {
     try {
-      const res = await fetch('http://47.6.38.141:3306/', {
+      const res = await fetch('http://47.6.38.141:5001/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
