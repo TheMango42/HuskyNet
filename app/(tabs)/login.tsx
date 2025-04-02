@@ -109,7 +109,7 @@ export default function HomeScreen() {
           <TouchableOpacity
             style={styles.link}
             activeOpacity={0.5}
-            onPress={() => { router.push('/(tabs)/signUp') }}
+            onPress={() => { router.push('../app/signUp') }}
           >
             <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               Don't have an account? Sign Up
