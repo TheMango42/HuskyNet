@@ -18,7 +18,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { router } from 'expo-router';
-import hashData from '../../Backend/Functions/encryption.js';
+
 
 export default function HomeScreen() {
   var [email, setEmail] = React.useState('');
