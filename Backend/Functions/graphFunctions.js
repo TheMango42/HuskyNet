@@ -27,7 +27,6 @@ export default function addToGraph(vertex){
 }
 
 export default function addEdgeBetween(fromVertex, toVertex, isClubManager){
-    const e = new Edge(fromVertex, toVertex, isClubManager);
     g.addDirectedEdge()
 }
 

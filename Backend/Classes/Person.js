@@ -8,6 +8,8 @@
   - username : String
   - email : String
   - password : String
+  - loggedIn : Boolean
+
   Methods:
   - getters and setters for all variables
 
@@ -20,6 +22,7 @@ export default class Person {
     #username = null;
     #email = null;
     #password = null;
+    #loggedIn = false;
 
     constructor(id,name, username,email,password) {
         this.#id = id;
@@ -29,6 +32,9 @@ export default class Person {
         this.#password = password;
     }
 
+    getLoggedIn(){
+        return this.#loggedIn;
+    }
     getId() {
         return this.#id;
     }
@@ -66,6 +72,9 @@ export default class Person {
     }
     setUsername(username){
         this.#username = username;
+    }
+    setLoggedIn(value){
+        this.#loggedIn = value;
     }
 
     
