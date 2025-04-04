@@ -83,7 +83,7 @@ export default function TabTwoScreen() {
               style={{ backgroundColor: 'NOTHING' }}
               indicatorStyle={{ backgroundColor: 'gold' }}
               activeColor={textColors()}
-              inactiveColor="gray"
+              inactiveColor='gray'
             />
           )}
         />

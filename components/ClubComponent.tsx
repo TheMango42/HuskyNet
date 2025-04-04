@@ -1,9 +1,13 @@
 
-import {View, Text, StyleSheet, Image, useColorScheme} from 'react-native';
+import {View, Text, StyleSheet, Image, useColorScheme, LogBox} from 'react-native';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
 import { IconSymbol } from './ui/IconSymbol';
+
+LogBox.ignoreLogs([
+    'Invalid hook call. Hooks can only be called inside of the body of a function component.',
+  ]);
 
 type PostID = {
     id: string,
@@ -25,16 +29,14 @@ export function ClubComponent(props: PostID){
 return (
     <View style = {styles.postContainer}>
         <View style = {styles.profileContainer}>
-            <Image source = {require('@/assets/images/profilepic.png')} style = {styles.profileImage}/>
-            <View style={styles.postInfo}>
+            <Image source = {require('@/assets/images/hpb_club.png')} style = {styles.clubImage}/>
+            <View style={styles.clubInfo}>
                 <ThemedText type="defaultSemiBold">Huskies Pep Band</ThemedText>
-                <ThemedText>2 days ago</ThemedText>
             </View>
         </View>
         
         <View style = {styles.postContents}>
-            <Text style = {[useColorScheme() === 'dark' ?  styles.postTextDark : styles.postTextLight]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
-            <Image source = {require('@/assets/images/post_example.jpeg')} style = {styles.postImage}/>
+            <Text style = {styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
         </View>
 
         <View style = {styles.feedButtons}>
@@ -51,9 +53,9 @@ return (
 
 const styles = StyleSheet.create({
     postContainer: {
-        padding: "4%",
+        padding: "0%",
         backgroundColor: '#21232A',
-        borderRadius: 20,
+        borderRadius: 30,
         borderWidth: 0,
 
         /*Shadows*/
@@ -64,54 +66,35 @@ const styles = StyleSheet.create({
         elevation: 10 // Android
     },
     profileContainer: {
-        flexDirection: 'row',
+        flexDirection: 'column',
         gap: 8,
     },
-    profileImage: {
-        width: 60,
-        height: 60,
-        borderRadius: 30,
+    clubImage: {
+        width: '100%',
+        height: 100,
+        borderTopLeftRadius: 20,
+        borderTopRightRadius: 20,
     },
-    postInfo: {
+    clubInfo: {
         flexDirection: 'column',
         justifyContent: 'flex-start',
-        padding: '0.5%',
+        padding: '1%',
     },
-    usernameDark: {
-        fontSize: 20,
-        color: '#D3D3D3',
+    usernameText: {
+        fontSize: 28,
+        color: textColors(),
     },
-    usernameLight: {
-        fontSize: 20,
-        color: 'black',
-    },
-    dateDark: {
+    dateText: {
         fontSize: 16,
-        color: '#D3D3D3',
+        color: textColors(),
     },
-    dateLight: {
+    postText: {
+        marginTop: 20,
         fontSize: 16,
-        color: 'black',
+        color: textColors(),
     },
     postContents: {
         
-    },
-    postTextLight: {
-        marginTop: 10,
-        fontSize: 16,
-        color: 'black',
-    },
-    postTextDark: {
-        marginTop: 20,
-        fontSize: 16,
-        color: '#D3D3D3',
-    },
-    postImage: {
-        width: '100%',
-        height: 200,
-        resizeMode: 'cover',
-        borderRadius: 10,
-        marginTop: 10,
     },
     feedButtons: {
         flexDirection: 'row',

@@ -33,7 +33,7 @@ return (
         </View>
         
         <View style = {styles.postContents}>
-            <Text style = {[useColorScheme() === 'dark' ?  styles.postTextDark : styles.postTextLight]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
+            <Text style = { styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
             <Image source = {require('@/assets/images/post_example.jpeg')} style = {styles.postImage}/>
         </View>
 
@@ -65,7 +65,7 @@ const styles = StyleSheet.create({
     postContainer: {
         padding: "4%",
         backgroundColor: '#21232A',
-        borderRadius: 20,
+        borderRadius: 30,
         borderWidth: 0,
 
         /*Shadows*/
@@ -89,34 +89,21 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         padding: '0.5%',
     },
-    usernameDark: {
+    usernameText: {
         fontSize: 20,
-        color: '#D3D3D3',
+        color: textColors(),
     },
-    usernameLight: {
-        fontSize: 20,
-        color: 'black',
-    },
-    dateDark: {
+    dateText: {
         fontSize: 16,
-        color: '#D3D3D3',
+        color: textColors(),
     },
-    dateLight: {
+    postText: {
+        marginTop: 20,
         fontSize: 16,
-        color: 'black',
+        color: textColors(),
     },
     postContents: {
         
-    },
-    postTextLight: {
-        marginTop: 10,
-        fontSize: 16,
-        color: 'black',
-    },
-    postTextDark: {
-        marginTop: 20,
-        fontSize: 16,
-        color: '#D3D3D3',
     },
     postImage: {
         width: '100%',
