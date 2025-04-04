@@ -7,7 +7,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { router } from 'expo-router';
-import hashData from '../Backend/Functions/encryption.js';
+//import hashData from '../Backend/Functions/encryption.js';
 
 export default function frontPage() {
   var [email, setEmail] = React.useState('');
@@ -16,7 +16,7 @@ export default function frontPage() {
   var [name, setName] = React.useState('');
   const getData = async () => {
     try {
-      const p = await hashData(password);
+      //const p = await hashData(password);
       const res = await fetch('http://47.6.38.141:5001/', {
         method: 'POST',
         headers: {
@@ -24,7 +24,7 @@ export default function frontPage() {
         },
         body: JSON.stringify({
           email: email,
-          password: p,
+          password: password,
         }),
       })
         .then(res => {
