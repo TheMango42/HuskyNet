@@ -1,4 +1,4 @@
-//import bcrypt from "bcrypt"
+import bcrypt from "bcrypt"
 /*
   encryption Functions
   - will be used to encrypt both the password to be stored and the persons ID 
@@ -11,7 +11,7 @@
   - 
 */
 
-//export default async function hashData(data){
-//    const salt = 10;
-//    return bcrypt.hash(data, salt);
-//}
+export default async function hashData(data){
+    const salt = 10;
+    return bcrypt.hash(data, salt);
+}
