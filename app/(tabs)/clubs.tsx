@@ -1,10 +1,12 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { ClubComponent } from '@/components/ClubComponent';
 import { Search } from '@/components/Search';
+import React from 'react';
 
 export default function HomeScreen() {
   return (
@@ -16,11 +18,12 @@ export default function HomeScreen() {
           style={styles.headerImage}
         />
       }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Clubs Page</ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.centeredContainer}>
+      <ThemedView>
+        <View style={styles.titleContainer}>
+        <ThemedText type="title">Clubs</ThemedText>
         <Search></Search>
+        </View>
+        <ClubComponent id='000001'/>
       </ThemedView>
     </ParallaxScrollView>
   );
@@ -30,11 +33,7 @@ const styles = StyleSheet.create({
   titleContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 8,
-  },
-  centeredContainer: {
-    alignItems: 'center',
-    gap: 30,
+    marginBottom: 10,
   },
   stepContainer: {
     gap: 8,

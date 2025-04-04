@@ -27,7 +27,7 @@ return (
         <View style = {styles.profileContainer}>
             <Image source = {require('@/assets/images/profilepic.png')} style = {styles.profileImage}/>
             <View style={styles.postInfo}>
-                <ThemedText type="defaultSemiBold">Brayden Gilland</ThemedText>
+                <ThemedText type="defaultSemiBold">Winter Carnival</ThemedText>
                 <ThemedText>2 days ago</ThemedText>
             </View>
         </View>

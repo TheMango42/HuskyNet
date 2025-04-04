@@ -1,10 +1,4 @@
-import {
-  StyleSheet,
-  Image,
-  ScrollView,
-  View,
-  Dimensions,
-} from 'react-native';
+import { StyleSheet, Image, ScrollView, View, Dimensions, useColorScheme } from 'react-native';
 import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -12,28 +6,29 @@ import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import React from 'react';
 import { PostComponent } from '@/components/PostComponent';
 
+const textColors = () => {
+    return useColorScheme() === 'dark' ? '#D3D3D3' : 'black';
+  };
+
 const PostsRoute = () => (
-  <ScrollView style={styles.sceneContainer}>
+  <ScrollView style={styles.postContainer}>
     <PostComponent id={'000001'} />
     <PostComponent id={'000002'} />
     <PostComponent id={'000003'} />
-    <PostComponent id={'000004'} />
   </ScrollView>
 );
 const ClubsRoute = () => (
-  <ScrollView style={styles.sceneContainer}>
-    <PostComponent id={'000001'} />
-    <PostComponent id={'000002'} />
-    <PostComponent id={'000003'} />
+  <ScrollView style={styles.clubContainer}>
     <PostComponent id={'000004'} />
+    <PostComponent id={'000005'} />
+    <PostComponent id={'000006'} />
   </ScrollView>
 );
 const RSVPsRoute = () => (
-  <ScrollView style={styles.sceneContainer}>
-    <PostComponent id={'000001'} />
-    <PostComponent id={'000002'} />
-    <PostComponent id={'000003'} />
-    <PostComponent id={'000004'} />
+  <ScrollView style={styles.eventContainer}>
+    <PostComponent id={'000007'} />
+    <PostComponent id={'000008'} />
+    <PostComponent id={'000009'} />
   </ScrollView>
 );
 
@@ -85,9 +80,9 @@ export default function TabTwoScreen() {
           renderTabBar={(props) => (
             <TabBar
               {...props}
-              style={{ backgroundColor: 'white' }}
-              indicatorStyle={{ backgroundColor: 'blue' }}
-              activeColor="black"
+              style={{ backgroundColor: 'NOTHING' }}
+              indicatorStyle={{ backgroundColor: 'gold' }}
+              activeColor={textColors()}
               inactiveColor="gray"
             />
           )}
@@ -108,7 +103,6 @@ const styles = StyleSheet.create({
   profileContainer: {
     flexDirection: 'row',
     justifyContent: 'center',
-    marginBottom: 20,
   },
   profileImage: {
     width: 120,
@@ -131,7 +125,15 @@ const styles = StyleSheet.create({
   tabViewContainer: {
     flex: 1,
   },
-  sceneContainer: {
+  postContainer: {
+    flex: 1,
+    padding: 16,
+  },
+  clubContainer: {
+    flex: 1,
+    padding: 16,
+  },
+  eventContainer: {
     flex: 1,
     padding: 16,
   },

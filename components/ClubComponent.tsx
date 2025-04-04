@@ -21,13 +21,13 @@ const textColors = () => {
     return useColorScheme() === 'dark' ? '#D3D3D3' : 'black';
   };
 
-export function PostComponent(props: PostID){
+export function ClubComponent(props: PostID){
 return (
     <View style = {styles.postContainer}>
         <View style = {styles.profileContainer}>
             <Image source = {require('@/assets/images/profilepic.png')} style = {styles.profileImage}/>
             <View style={styles.postInfo}>
-                <ThemedText type="defaultSemiBold">Brayden Gilland</ThemedText>
+                <ThemedText type="defaultSemiBold">Huskies Pep Band</ThemedText>
                 <ThemedText>2 days ago</ThemedText>
             </View>
         </View>
@@ -39,21 +39,9 @@ return (
 
         <View style = {styles.feedButtons}>
 
-        <Pressable onPress={() => 'Liked!'} activeOpacity={0.5}>
+        <Pressable onPress={() => 'Joined!'} activeOpacity={0.5}>
             <View style = {styles.interactButton}>
-                <IconSymbol name='hand.thumbsup.fill' size={28} color={textColors()} />
-            </View>
-        </Pressable>
-
-        <Pressable onPress={() => 'Commented!'} activeOpacity={0.5}>
-            <View style = {styles.interactButton}>
-                <IconSymbol name={'bubble'} size={28} color={textColors()} />
-            </View>
-        </Pressable>
-
-        <Pressable onPress={() => 'Shared!'} activeOpacity={0.5}>
-            <View style = {styles.interactButton}>
-                <IconSymbol name={'paperplane'} size={28} color={textColors()} />
+                <IconSymbol name={'plus.circle'} size={28} color={textColors()} />
             </View>
         </Pressable>         
         </View>

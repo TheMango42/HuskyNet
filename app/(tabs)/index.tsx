@@ -22,6 +22,7 @@ export default function HomeScreen() {
         <ThemedView style={styles.titleContainer}>
           <Search></Search>
         </ThemedView>
+        <ThemedText type="title">Explore</ThemedText>
         <PostComponent id={'000001'}/>  
         <PostComponent id={'000002'}/>  
         <PostComponent id={'000003'}/>  
