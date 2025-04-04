@@ -11,6 +11,7 @@
   - idk if images are stored as strings I'm just guessing
 */
 export default class Post{
+    #Likes = 0;
     #postid = null;
     #image = null;
     #description = null;  
@@ -18,6 +19,12 @@ export default class Post{
         this.#postid = id;
         this.#image = image;
         this.#description = description;
+    }
+    getLikes(){
+        return this.#Likes;
+    }
+    setLikes(number){
+        this.#Likes = number;
     }
     getPostId(){
         return this.#postid;

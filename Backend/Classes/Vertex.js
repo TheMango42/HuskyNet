@@ -70,7 +70,7 @@ export default class Vertex{
         return false;
     }
     hash(person) {
-        return ((parseInt(person.getId())*13) % 3148245) + 3;
+        return null; //realized the max digits in a persons Id would exceed the max number limit of java so my previous idea wouldn't work
     }
     
 }

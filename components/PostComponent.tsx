@@ -4,6 +4,7 @@ import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
 import { IconSymbol } from './ui/IconSymbol';
+import { isLiked } from '@/Backend/Functions/postFunctions';
 
 type PostID = {
     id: string,
@@ -38,23 +39,22 @@ return (
         </View>
 
         <View style = {styles.feedButtons}>
+
         <Pressable onPress={() => 'Liked!'} activeOpacity={0.5}>
             <View style = {styles.interactButton}>
-                if(isLiked() == true){
-                    <IconSymbol name='hand.thumbsup.fill' size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'} />
-                } else {
-                    <IconSymbol name='hand.thumbsup' size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'}/>
-                }
+                <IconSymbol name='hand.thumbsup.fill' size={28} color={textColors()} />
             </View>
         </Pressable>
+
         <Pressable onPress={() => 'Commented!'} activeOpacity={0.5}>
             <View style = {styles.interactButton}>
-                <IconSymbol name={'bubble'} size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'} />
+                <IconSymbol name={'bubble'} size={28} color={textColors()} />
             </View>
         </Pressable>
+
         <Pressable onPress={() => 'Shared!'} activeOpacity={0.5}>
             <View style = {styles.interactButton}>
-                <IconSymbol name={'paperplane'} size={28} color={useColorScheme() === 'dark' ? '#D3D3D3' : 'black'} />
+                <IconSymbol name={'paperplane'} size={28} color={textColors()} />
             </View>
         </Pressable>         
         </View>

@@ -1,6 +1,8 @@
+import Graph from "graphology"
+import Vertex from "Backend/Classes/Vertex.js"
 /*
   SignUp Class
-  - has a few methods to parse the email, verify the email, and turn the email into an ID
+  - has a few methods to parse the email, verify the email, and turn the email into an ID and 
   
   Methods:
   - emailSplit(email) returns : Array[emailBefore@, emailAfter@]
