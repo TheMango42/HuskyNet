@@ -4,7 +4,7 @@ import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedView } from '@/components/ThemedView';
 import { PostComponent } from '@/components/PostComponent';
-import { Search } from '@/components/Search';
+import Search from '@/components/Search';
 import { ThemedText } from '@/components/ThemedText';
 
 export default function HomeScreen() {
@@ -16,11 +16,10 @@ export default function HomeScreen() {
           source={require('@/assets/images/index.jpg')}
           style={styles.headerImage}
         />
-
       }>
 
       <ThemedView style={styles.stepContainer}>
-        <ThemedView>
+        <ThemedView style={styles.titleContainer}>
           <Search></Search>
         </ThemedView>
         <PostComponent id={'000001'}/>  

@@ -4,6 +4,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import {PostComponent} from '@/components/PostComponent';
+import { Search } from '@/components/Search';
 
 export default function HomeScreen() {
   //vars not being used yet
@@ -11,7 +12,7 @@ export default function HomeScreen() {
   var datePosted = "Date Posted";
   var postText = "Post Text";
   var postImage = require('@/assets/images/post_example.jpeg');
-
+  var searchResults;
 
   return (
     <ParallaxScrollView
@@ -25,6 +26,9 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Events Page</ThemedText>
       </ThemedView>
+      <ThemedView style={styles.centeredContainer}>
+        <Search></Search>
+      </ThemedView>
     </ParallaxScrollView>
   );
 }
@@ -34,6 +38,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+  },
+  centeredContainer: {
+    alignItems: 'center',
+    gap: 30,
   },
   stepContainer: {
     gap: 8,

@@ -4,6 +4,7 @@ import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import { Search } from '@/components/Search';
 
 export default function HomeScreen() {
   return (
@@ -18,6 +19,9 @@ export default function HomeScreen() {
       <ThemedView style={styles.titleContainer}>
         <ThemedText type="title">Clubs Page</ThemedText>
       </ThemedView>
+      <ThemedView style={styles.centeredContainer}>
+        <Search></Search>
+      </ThemedView>
     </ParallaxScrollView>
   );
 }
@@ -27,6 +31,10 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     gap: 8,
+  },
+  centeredContainer: {
+    alignItems: 'center',
+    gap: 30,
   },
   stepContainer: {
     gap: 8,
