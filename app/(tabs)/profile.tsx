@@ -1,19 +1,40 @@
-import { StyleSheet, Image, useWindowDimensions, ScrollView, View, Dimensions } from 'react-native';
-
+import {
+  StyleSheet,
+  Image,
+  ScrollView,
+  View,
+  Dimensions,
+} from 'react-native';
 import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import React from 'react';
+import { PostComponent } from '@/components/PostComponent';
 
 const PostsRoute = () => (
-  <View style={[styles.sceneContainer, { backgroundColor: '#ff4081' }]} />
+  <ScrollView style={styles.sceneContainer}>
+    <PostComponent id={'000001'} />
+    <PostComponent id={'000002'} />
+    <PostComponent id={'000003'} />
+    <PostComponent id={'000004'} />
+  </ScrollView>
 );
 const ClubsRoute = () => (
-  <View style={[styles.sceneContainer, { backgroundColor: '#673ab7' }]} />
+  <ScrollView style={styles.sceneContainer}>
+    <PostComponent id={'000001'} />
+    <PostComponent id={'000002'} />
+    <PostComponent id={'000003'} />
+    <PostComponent id={'000004'} />
+  </ScrollView>
 );
 const RSVPsRoute = () => (
-  <View style={[styles.sceneContainer, { backgroundColor: '#ffffff' }]} />
+  <ScrollView style={styles.sceneContainer}>
+    <PostComponent id={'000001'} />
+    <PostComponent id={'000002'} />
+    <PostComponent id={'000003'} />
+    <PostComponent id={'000004'} />
+  </ScrollView>
 );
 
 export default function TabTwoScreen() {
@@ -35,7 +56,7 @@ export default function TabTwoScreen() {
 
   return (
     <ThemedView style={styles.container}>
-      <ScrollView>
+      {/* Profile Section */}
         <View style={styles.profileContainer}>
           <Image
             source={require('@/assets/images/profilepic.png')}
@@ -45,7 +66,7 @@ export default function TabTwoScreen() {
           <View style={styles.profileInfoContainer}>
             <ThemedText style={styles.profileName}>Brayden Gilland</ThemedText>
             <ThemedText type="defaultSemiBold">
-              <ThemedText style={styles.boldText}>*** Followers   </ThemedText> 
+              <ThemedText style={styles.boldText}>*** Followers </ThemedText>
               <ThemedText style={styles.boldText}>*** Following</ThemedText>
             </ThemedText>
             <ExternalLink href="https://reactnative.dev/docs/images">
@@ -54,23 +75,24 @@ export default function TabTwoScreen() {
           </View>
         </View>
 
-        <View style={styles.tabViewContainer}>
+      <View style={styles.tabViewContainer}>
         <TabView
           navigationState={{ index, routes }}
           renderScene={renderScene}
           onIndexChange={setIndex}
           initialLayout={initialLayout}
-          renderTabBar={props => (
+          style={{ flex: 1 }}
+          renderTabBar={(props) => (
             <TabBar
               {...props}
               style={{ backgroundColor: 'white' }}
               indicatorStyle={{ backgroundColor: 'blue' }}
+              activeColor="black"
+              inactiveColor="gray"
             />
           )}
         />
       </View>
-      
-      </ScrollView>
     </ThemedView>
   );
 }
@@ -78,11 +100,15 @@ export default function TabTwoScreen() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: '4%',
+    paddingTop: 60,
+  },
+  scrollContent: {
+    paddingHorizontal: '4%',
   },
   profileContainer: {
     flexDirection: 'row',
-    marginTop: '12%',
+    justifyContent: 'center',
+    marginBottom: 20,
   },
   profileImage: {
     width: 120,
@@ -90,7 +116,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   profileInfoContainer: {
-    padding: '3.5%',
+    paddingHorizontal: 15,
     justifyContent: 'center',
   },
   profileName: {
@@ -103,9 +129,10 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   tabViewContainer: {
-    flex: 1, // Ensures proper rendering of TabView
+    flex: 1,
   },
   sceneContainer: {
     flex: 1,
+    padding: 16,
   },
 });
