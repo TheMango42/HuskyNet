@@ -1,10 +1,11 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View } from 'react-native';
 
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import {PostComponent} from '@/components/PostComponent';
 import { Search } from '@/components/Search';
+import { EventComponent } from '@/components/EventComponent';
 
 export default function HomeScreen() {
   //vars not being used yet
@@ -16,20 +17,21 @@ export default function HomeScreen() {
 
   return (
     <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/events.jpg')}
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Events Page</ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.centeredContainer}>
-        <Search></Search>
-      </ThemedView>
-    </ParallaxScrollView>
+          headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
+          headerImage={
+            <Image
+              source={require('@/assets/images/events.jpg')}
+              style={styles.headerImage}
+            />
+          }>
+          <ThemedView>
+            <View style={styles.titleContainer}>
+              <ThemedText type="title">Events</ThemedText>
+              <Search></Search>
+            </View>
+            <EventComponent id='000001' />
+          </ThemedView>
+        </ParallaxScrollView>
   );
 }
 
