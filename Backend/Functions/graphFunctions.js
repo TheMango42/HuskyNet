@@ -10,7 +10,8 @@ import {emailToAscii, emailSplit} from "./SignUp.js"
   - holds the functions for the graph 
   
  Functions: 
- - addToGraph(graph, vertex) : adds vertex to the graph and sets the hash for that vertex's Id as an attribute returns Boolean
+ - addToGraph(vertex) : adds vertex to the graph and sets the hash for that vertex's Id as an attribute returns Boolean
+ - addEdgeBetween(fromVertex, toVertex, isClubManager) : adds directed edge between the two vertex's and sets the attribute as true or false depending on the value of isClubManager  
  - getVertex(email) : parses email and turns it into an Id then gets the Vertex associated with that ID in the graph
 
   notes 3/31
@@ -22,14 +23,19 @@ export default function addToGraph(vertex){
         return false;//returns false if vertex is already in the graph or if the vertex given isn't a vertex
     }
     g.addNode(vertex);
-    g.setAttribute(vertex.getHash(), vertex);
+    g.setNodeAttribute(vertex, 'Id', vertex.getHash(),);
     return true;
 
 }
 
 export default function addEdgeBetween(fromVertex, toVertex, isClubManager){
-   //idk how I want to implement this 
-    g.addDirectedEdge()
+
+   if(!(fromVertex instanceof Vertex) || !(toVertex instanceof Vertex)){
+    return false;
+   }
+    const e = g.addEdge(fromVertex, toVertex);
+    g.setEdgeAttribute(e, 'isClubManager', isClubManager);
+    return true;
 }
 
 export default function getVertex(email){
