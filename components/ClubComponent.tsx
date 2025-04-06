@@ -1,13 +1,9 @@
 
-import {View, Text, StyleSheet, Image, useColorScheme, LogBox} from 'react-native';
+import { View, Text, StyleSheet, Image, useColorScheme, LogBox } from 'react-native';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
 import { IconSymbol } from './ui/IconSymbol';
-
-LogBox.ignoreLogs([
-    'Invalid hook call. Hooks can only be called inside of the body of a function component.',
-  ]);
 
 type PostID = {
     id: string,
@@ -21,39 +17,37 @@ type FeedItems = {
     activeOpacity: number,
 }
 
-const textColors = () => {
-    return useColorScheme() === 'dark' ? '#D3D3D3' : 'black';
-  };
+export function ClubComponent(props: PostID) {
+    const colorScheme = useColorScheme();
+    const dynamicTextColor = colorScheme === 'dark' ? '#D3D3D3' : 'black';
 
-export function ClubComponent(props: PostID){
-return (
-    <View style = {styles.postContainer}>
-        <View style = {styles.profileContainer}>
-            <Image source = {require('@/assets/images/hpb_club.png')} style = {styles.clubImage}/>
-            <View style={styles.clubInfo}>
-                <ThemedText type="defaultSemiBold">Huskies Pep Band</ThemedText>
+    return (
+        <View style={styles.postContainer}>
+            <View style={styles.profileContainer}>
+                <Image source={require('@/assets/images/hpb_club.png')} style={styles.clubImage} />
             </View>
-        </View>
-        
-        <View style = {styles.postContents}>
-            <Text style = {styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
-        </View>
+            <View style={styles.postContents}>
+                <View style={styles.clubInfo}>
+                    <ThemedText type="subtitle">Huskies Pep Band</ThemedText>
+                    <Text style={[styles.postText, { color: dynamicTextColor }]}>
+                    The Cream of the Keweenaw, The Pride of Pastyland, The Second-Best Feeling in the World!
+                    </Text>
+                </View>
 
-        <View style = {styles.feedButtons}>
-
-        <Pressable onPress={() => 'Joined!'} activeOpacity={0.5}>
-            <View style = {styles.interactButton}>
-                <IconSymbol name={'plus.circle'} size={28} color={textColors()} />
+                <Pressable onPress={() => 'Joined!'} activeOpacity={0.5}>
+                    <View style={styles.interactButton}>
+                        <IconSymbol name={'plus.circle'} size={48} color={dynamicTextColor} />
+                        <ThemedText type="defaultSemiBold">Join</ThemedText>
+                    </View>
+                </Pressable>
             </View>
-        </Pressable>         
+
         </View>
-    </View>
-)
+    )
 }
 
 const styles = StyleSheet.create({
     postContainer: {
-        padding: "0%",
         backgroundColor: '#21232A',
         borderRadius: 30,
         borderWidth: 0,
@@ -62,12 +56,11 @@ const styles = StyleSheet.create({
         shadowColor: '#000',
         shadowOffset: { width: 0, height: 1 },
         shadowOpacity: 0.8,
-        shadowRadius: 5,  
+        shadowRadius: 5,
         elevation: 10 // Android
     },
     profileContainer: {
-        flexDirection: 'column',
-        gap: 8,
+        flexDirection: 'row',
     },
     clubImage: {
         width: '100%',
@@ -76,35 +69,20 @@ const styles = StyleSheet.create({
         borderTopRightRadius: 20,
     },
     clubInfo: {
-        flexDirection: 'column',
-        justifyContent: 'flex-start',
-        padding: '1%',
-    },
-    usernameText: {
-        fontSize: 28,
-        color: textColors(),
-    },
-    dateText: {
-        fontSize: 16,
-        color: textColors(),
+        flex: 1,
+        padding: '4%',
+        gap: 8,
     },
     postText: {
-        marginTop: 20,
         fontSize: 16,
-        color: textColors(),
+        width: '100%',
     },
     postContents: {
-        
-    },
-    feedButtons: {
         flexDirection: 'row',
-        marginTop: 10,
+        alignItems: 'center',
     },
     interactButton: {
-        marginRight: 10,
+        alignItems: 'center',
+        marginRight: '15%',
     },
-    container: {
-        flex: 1,
-        padding: 20,
-    }
 })

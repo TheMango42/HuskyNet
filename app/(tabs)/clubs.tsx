@@ -20,10 +20,10 @@ export default function HomeScreen() {
       }>
       <ThemedView>
         <View style={styles.titleContainer}>
-        <ThemedText type="title">Clubs</ThemedText>
-        <Search></Search>
+          <ThemedText type="title">Clubs</ThemedText>
+          <Search></Search>
         </View>
-        <ClubComponent id='000001'/>
+        <ClubComponent id='000001' />
       </ThemedView>
     </ParallaxScrollView>
   );
