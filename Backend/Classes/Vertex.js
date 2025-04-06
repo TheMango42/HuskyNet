@@ -13,9 +13,8 @@ import Profile from "./Profile.js";
   
   Methods: 
   - getters and setters for all vaiables 
-  - addFollower(person) :  returns Boolean for if it fails
-  - addFollowing(person) :  returns Boolean for if it fails
-  - hash(person) : returns Integer used for Hash variable
+  - addFollower(vertex) :  returns Boolean for if it fails
+  - addFollowing(vertex) :  returns Boolean for if it fails
 
   notes 3/26
   - there might be more things that need to be stored in this class but I'm not sure
@@ -34,7 +33,7 @@ export default class Vertex{
         }
         this.#profile = new Profile(image, discord);
         this.#person = person;
-        this.#Hash = this.hash(person);
+        this.#Hash = person.getId();
         this.#following = new Map();
         this.#followers = new Map();
         
@@ -55,22 +54,20 @@ export default class Vertex{
     getHash() {
         return this.#Hash;
     }
-    addFollower(person) {
-        if(person instanceof Person && person != this.#person) {
-            this.#followers.set(this.hash(person),person);
+    addFollower(vertex) {
+        
+        if(vertex instanceof Vertex && vertex.getHash() != this.#Hash) {
+            this.#followers.set(vertex.getId(), vertex);
             return true;
         }
         return false;
     }
-    addFollowing(person) {
-        if(person instanceof Person && person != this.#person) {
-            this.#following.set(this.hash(person),person);
+    addFollowing(vertex) {
+        if(vertex instanceof Vertex && vertex.getHash() != this.#Hash) {
+            this.#following.set(vertex.getId(), vertex);
             return true;
         }
         return false;
-    }
-    hash(person) {
-        return null; //realized the max digits in a persons Id would exceed the max number limit of java so my previous idea wouldn't work
     }
     
 }

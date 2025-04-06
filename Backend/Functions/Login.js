@@ -1,24 +1,29 @@
 import Person from "../Classes/Person.js"
+import Vertex from "../Classes/Vertex.js"
+import {Compare} from "./encryption.js"
 
 /*
   Login Functions
   - holds the functions for logging in and logging out of your account
   
  Functions: 
- - logIn(p) : sets the loggedIn boolean to true when the person is logged in
- - logOut(p) : sets the loggedIn boolean to false when they log out
+ - async logIn(v, password) : compares the passwords and sets the loggedIn boolean to true when the person is logged in 
+ - logOut(v) : sets the loggedIn boolean to false when they log out
 
   notes 4/2
   - 
 */
 
-export default function logIn(p){
-    if(p instanceof Person){
+export default async function logIn(v, password){
+    const match = await Compare(v.getHash(), password);
+    if(v instanceof Vertex && match){
+        const p = v.getPerson();
         p.setLoggedIn(true);
     }
+    return match;
 }
-export default function LogOut(p){
-    if(p instanceof Person){
-        p.setLoggedIn(true);
+export default function LogOut(v){
+    if(v instanceof Vertex){
+        v.getPerson().setLoggedIn(false);
     }
 }

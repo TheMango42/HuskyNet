@@ -4,13 +4,14 @@ import Edge from "../Classes/Edge.js"
 import Post from "../Classes/Post.js"
 import Club from "../Casses/Club.js"
 import Event from "../Classes/Event.js"
+import {emailToAscii, emailSplit} from "./SignUp.js"
 /*
   Graph Functions
   - holds the functions for the graph 
   
  Functions: 
  - addToGraph(graph, vertex) : adds vertex to the graph and sets the hash for that vertex's Id as an attribute returns Boolean
- - 
+ - getVertex(email) : parses email and turns it into an Id then gets the Vertex associated with that ID in the graph
 
   notes 3/31
   - not sure if we need the hash and not sure if the hash will result in conflicts?
@@ -27,6 +28,12 @@ export default function addToGraph(vertex){
 }
 
 export default function addEdgeBetween(fromVertex, toVertex, isClubManager){
+   //idk how I want to implement this 
     g.addDirectedEdge()
 }
 
+export default function getVertex(email){
+    const a = emailSplit(email);
+    const e = emailToAscii(a[1]);
+    return g.getAttribute(e);
+}

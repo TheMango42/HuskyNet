@@ -1,3 +1,4 @@
+import {hashData} from "../Functions/encryption.js"
 /*
   Person Class
   - Holds the data for each user
@@ -29,7 +30,8 @@ export default class Person {
         this.#name = name;
         this.#username = username;
         this.#email = email;
-        this.#password = password;
+        const p = async (password)=> {return await hashData(password);}
+        this.password = p;
     }
 
     getLoggedIn(){
