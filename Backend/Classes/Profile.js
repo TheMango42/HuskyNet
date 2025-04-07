@@ -10,7 +10,7 @@ import Post from "./Post.js"
 
   Methods:
   - getters and setters for all variables
-  - addPost(post) : returns Boolean for if it succeded or not
+  - addPost(image, description) : returns Post that was created
 
 
   notes 3/26
@@ -43,7 +43,7 @@ export default class Profile  {
     addPost(image, description) {
         const post = new Post(id, image, description);
             this.#posts.set(post.getPostId, post); 
-            return true;
+            return post;
     }
 
     getPosts() {

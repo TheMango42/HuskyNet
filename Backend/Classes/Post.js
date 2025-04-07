@@ -7,6 +7,9 @@
   - image : String
   - description : String
 
+  Methods:
+  - addLike() : adds 1 to like counter
+
   notes 3/26
   - idk if images are stored as strings I'm just guessing
 */
@@ -23,8 +26,8 @@ export default class Post{
     getLikes(){
         return this.#Likes;
     }
-    setLikes(number){
-        this.#Likes = number;
+    addLike(){
+        this.#Likes++;
     }
     getPostId(){
         return this.#postid;

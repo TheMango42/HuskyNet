@@ -27,7 +27,7 @@ export default class Club {
     #members = null;
     #president = null;
     #profile = null;
-    #events = null
+    #events = null;
     constructor(name, president, image, discord) {
         if (!(president instanceof Vertex)) {
             throw new Error("President requires a Vertex instance.");
