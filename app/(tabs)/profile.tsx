@@ -14,9 +14,12 @@ const textColors = () => {
 
 const PostsRoute = () => (
   <ScrollView style={styles.postContainer}>
-    <View style={styles.postItem}><PostComponent id={'000001'} /></View>
-    <View style={styles.postItem}><PostComponent id={'000002'} /></View>
-    <View style={styles.postItem}><PostComponent id={'000003'} /></View>
+    <PostComponent id={'000001'} />
+    <View style={{ height: 20 }} />
+    <PostComponent id={'000002'} />
+    <View style={{ height: 20 }} />
+    <PostComponent id={'000003'} />
+    <View style={{ height: 100 }} />
   </ScrollView>
 );
 const ClubsRoute = () => (
@@ -42,9 +45,9 @@ export default function TabTwoScreen() {
   ];
 
   const renderScene = SceneMap({
-    post: PostsRoute,
+    rsvp: PostsRoute,
     club: ClubsRoute,
-    rsvp: RSVPsRoute,
+    post: RSVPsRoute,
   });
 
   return (
@@ -127,9 +130,6 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
-  postItem: {
-    marginBottom: 16,
-  },  
   clubContainer: {
     flex: 1,
     padding: 16,

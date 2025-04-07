@@ -5,9 +5,8 @@ import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
 import { IconSymbol } from './ui/IconSymbol';
 
-type PostProps = {
+type PostID = {
     id: string,
-    style?: any,
 }
 
 type FeedItems = {
@@ -18,7 +17,7 @@ type FeedItems = {
     activeOpacity: number,
 }
 
-export function PostComponent({ id, style }: PostProps) {
+export function PostComponent(props: PostID){
     const colorScheme = useColorScheme();
     const dynamicTextColor = colorScheme === 'dark' ? '#D3D3D3' : 'black';
     return (
