@@ -5,6 +5,8 @@ import { ThemedView } from '@/components/ThemedView';
 import { TabView, SceneMap, TabBar } from 'react-native-tab-view';
 import React from 'react';
 import { PostComponent } from '@/components/PostComponent';
+import { ClubComponent } from '@/components/ClubComponent';
+import { EventComponent } from '@/components/EventComponent';
 
 const textColors = () => {
     return useColorScheme() === 'dark' ? '#D3D3D3' : 'black';
@@ -12,23 +14,19 @@ const textColors = () => {
 
 const PostsRoute = () => (
   <ScrollView style={styles.postContainer}>
-    <PostComponent id={'000001'} />
-    <PostComponent id={'000002'} />
-    <PostComponent id={'000003'} />
+    <View style={styles.postItem}><PostComponent id={'000001'} /></View>
+    <View style={styles.postItem}><PostComponent id={'000002'} /></View>
+    <View style={styles.postItem}><PostComponent id={'000003'} /></View>
   </ScrollView>
 );
 const ClubsRoute = () => (
   <ScrollView style={styles.clubContainer}>
-    <PostComponent id={'000004'} />
-    <PostComponent id={'000005'} />
-    <PostComponent id={'000006'} />
+    
   </ScrollView>
 );
 const RSVPsRoute = () => (
   <ScrollView style={styles.eventContainer}>
-    <PostComponent id={'000007'} />
-    <PostComponent id={'000008'} />
-    <PostComponent id={'000009'} />
+    
   </ScrollView>
 );
 
@@ -129,6 +127,9 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 16,
   },
+  postItem: {
+    marginBottom: 16,
+  },  
   clubContainer: {
     flex: 1,
     padding: 16,

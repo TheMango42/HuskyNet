@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, TextInput } from 'react-native';
+import { Image, StyleSheet, Platform, TextInput, useColorScheme } from 'react-native';
 
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -8,6 +8,8 @@ import Search from '@/components/Search';
 import { ThemedText } from '@/components/ThemedText';
 
 export default function HomeScreen() {
+  const colorScheme = useColorScheme();
+  const dynamicTextColor = colorScheme === 'dark' ? '#D3D3D3' : 'black';
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
@@ -46,17 +48,7 @@ const styles = StyleSheet.create({
     resizeMode: "cover", // Makes the image fit while covering
     position: 'absolute',
   },
-  textInputLight: {
-    width: 200,
-    height: 40,
-    borderColor: 'gray',
-    borderWidth: 3,
-    borderRadius: 15,
-    paddingHorizontal: 10,
-    margin: 10,
-    color: 'black',
-},
-textInputDark: {
+  textInput: {
     width: 200,
     height: 40,
     borderColor: 'gray',
@@ -65,5 +57,5 @@ textInputDark: {
     paddingHorizontal: 10,
     margin: 10,
     color: 'white',
-}
+},
 });

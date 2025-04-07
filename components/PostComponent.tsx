@@ -5,8 +5,9 @@ import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
 import { IconSymbol } from './ui/IconSymbol';
 
-type PostID = {
+type PostProps = {
     id: string,
+    style?: any,
 }
 
 type FeedItems = {
@@ -17,12 +18,10 @@ type FeedItems = {
     activeOpacity: number,
 }
 
-const textColors = () => {
-    return useColorScheme() === 'dark' ? '#D3D3D3' : 'black';
-  };
-
-export function PostComponent(props: PostID){
-return (
+export function PostComponent({ id, style }: PostProps) {
+    const colorScheme = useColorScheme();
+    const dynamicTextColor = colorScheme === 'dark' ? '#D3D3D3' : 'black';
+    return (
     <View style = {styles.postContainer}>
         <View style = {styles.profileContainer}>
             <Image source = {require('@/assets/images/profilepic.png')} style = {styles.profileImage}/>
@@ -33,7 +32,7 @@ return (
         </View>
         
         <View style = {styles.postContents}>
-            <Text style = { styles.postText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
+            <Text style={[styles.postText, { color: dynamicTextColor }]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</Text>
             <Image source = {require('@/assets/images/post_example.jpeg')} style = {styles.postImage}/>
         </View>
 
@@ -41,19 +40,19 @@ return (
 
         <Pressable onPress={() => 'Liked!'} activeOpacity={0.5}>
             <View style = {styles.interactButton}>
-                <IconSymbol name='hand.thumbsup.fill' size={28} color={textColors()} />
+                <IconSymbol name='hand.thumbsup.fill' size={28} color={dynamicTextColor} />
             </View>
         </Pressable>
 
         <Pressable onPress={() => 'Commented!'} activeOpacity={0.5}>
             <View style = {styles.interactButton}>
-                <IconSymbol name={'bubble'} size={28} color={textColors()} />
+                <IconSymbol name={'bubble'} size={28} color={dynamicTextColor} />
             </View>
         </Pressable>
 
         <Pressable onPress={() => 'Shared!'} activeOpacity={0.5}>
             <View style = {styles.interactButton}>
-                <IconSymbol name={'paperplane'} size={28} color={textColors()} />
+                <IconSymbol name={'paperplane'} size={28} color={dynamicTextColor} />
             </View>
         </Pressable>         
         </View>
@@ -91,16 +90,13 @@ const styles = StyleSheet.create({
     },
     usernameText: {
         fontSize: 20,
-        color: textColors(),
     },
     dateText: {
         fontSize: 16,
-        color: textColors(),
     },
     postText: {
         marginTop: 20,
         fontSize: 16,
-        color: textColors(),
     },
     postContents: {
         
@@ -119,8 +115,4 @@ const styles = StyleSheet.create({
     interactButton: {
         marginRight: 10,
     },
-    container: {
-        flex: 1,
-        padding: 20,
-    }
 })
