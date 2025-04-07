@@ -22,7 +22,7 @@ export function EventComponent(props: PostID) {
     const dynamicTextColor = colorScheme === 'dark' ? '#D3D3D3' : 'black';
 
     return (
-        <View style={styles.postContainer}>
+        <Pressable onClick={() => 'Clicked!'} activeOpacity={0.5} style={styles.postContainer}>
             <View style={styles.profileContainer}>
                 <Image source={require('@/assets/images/carni.jpg')} style={styles.clubImage} />
             </View>
@@ -42,8 +42,7 @@ export function EventComponent(props: PostID) {
                     </View>
                 </Pressable>
             </View>
-
-        </View>
+        </Pressable>       
     )
 }
 
