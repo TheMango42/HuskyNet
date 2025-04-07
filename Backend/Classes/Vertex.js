@@ -1,5 +1,6 @@
 import Person from "./Person.js";
 import Profile from "./Profile.js";
+import {addEdge, removeEdge} from "../Functions/graphFunctions.js"
 /*
   Vertex Class
   - Holds the data for each created Person
@@ -57,7 +58,9 @@ export default class Vertex{
     addFollower(vertex) {
         
         if(vertex instanceof Vertex && vertex.getHash() != this.#Hash) {
+            addEdge(this, vertex, false);
             this.#followers.set(vertex.getId(), vertex);
+            vertex.addFollowing(this);
             return true;
         }
         return false;
@@ -65,6 +68,24 @@ export default class Vertex{
     addFollowing(vertex) {
         if(vertex instanceof Vertex && vertex.getHash() != this.#Hash) {
             this.#following.set(vertex.getId(), vertex);
+            return true;
+        }
+        return false;
+    }
+    removeFollower(vertex) {
+        if (vertex instanceof Vertex && vertex.getHash() !== this.#Hash) {
+            this.#followers.delete(vertex.getId());
+            vertex.removeFollowing(this); 
+            removeEdge(this, vertex);
+            return true;
+        }
+        return false;
+    }
+    
+    removeFollowing(vertex) {
+        if (vertex instanceof Vertex && vertex.getHash() !== this.#Hash) {
+            this.#following.delete(vertex.getId());
+            
             return true;
         }
         return false;

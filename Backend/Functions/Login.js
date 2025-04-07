@@ -14,7 +14,7 @@ import {Compare} from "./encryption.js"
   - 
 */
 
-export default async function logIn(v, password){
+export async function logIn(v, password){
     const match = await Compare(v.getHash(), password);
     if(v instanceof Vertex && match){
         const p = v.getPerson();
@@ -22,7 +22,7 @@ export default async function logIn(v, password){
     }
     return match;
 }
-export default function LogOut(v){
+export function LogOut(v){
     if(v instanceof Vertex){
         v.getPerson().setLoggedIn(false);
     }

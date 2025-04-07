@@ -11,11 +11,11 @@ import bcrypt from "bcrypt"
   - 
 */
 
-export default async function hashData(data){
+export async function hashData(data){
     const salt = 12;
     return bcrypt.hash(data, salt);
 }
 
-export default async function Compare(unhashedData, hashedData){
+export async function Compare(unhashedData, hashedData){
   return bcrypt.compare(unhashedData, hashedData);
 }

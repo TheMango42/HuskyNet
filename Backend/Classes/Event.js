@@ -1,4 +1,4 @@
-import {List, Item} from 'linked-list'
+import {Item} from 'linked-list'
 /*
   Event Class
   - Holds the data for each event that is made by each club or person

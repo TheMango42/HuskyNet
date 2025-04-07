@@ -13,13 +13,13 @@ import Vertex from "Backend/Classes/Vertex.js"
   - 
 */
 
-export default function emailSplit(email){
+export function emailSplit(email){
     const emailArray = email.split('@'); //splits email at the @ and returns array of the first half (ajsaylor) in [0] and second half (mtu.edu) in [1] 
     return emailArray;
 }
 
 // split array and put the first half of the array into this function
-export default function emailToAscii(name){
+export function emailToAscii(name){
     const charArray = name.split(''); //splits name into an array of characters to be ascii'd
     var id = '';
     for(let e in charArray){
@@ -31,7 +31,7 @@ export default function emailToAscii(name){
     return id;
 }
     // takes in split email array and returns 1 if good and returns 0 if bad
-export default function verify(email){
+export function verify(email){
     if (email[1] === 'mtu.edu'){
         return true;
     }

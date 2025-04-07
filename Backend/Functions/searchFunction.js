@@ -1,4 +1,4 @@
-import Search from "/components/Search.js";
+import Search from "../../components/Search.tsx";
 
 function searchPage() {
     const searchResults = Search.search;

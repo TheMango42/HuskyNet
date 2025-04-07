@@ -1,7 +1,7 @@
 import Vertex from "./Vertex.js"
 import Profile from "./Profile.js"
 import Event from "./Event.js"
-import {List, Item} from 'linked-list'
+import {List} from 'linked-list'
 import Person from "./Person.js";
 /*
   Club Class

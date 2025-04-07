@@ -16,7 +16,7 @@ import Graph from "graphology"
   - how do we record what userID likes the post? is that a frontend thing or a backend thing?
 */
 
-export default function isLiked(postId, userId) {
+export function isLiked(postId, userId) {
     if (userId.equals(postId)) {
         return true;
     } else {
@@ -24,7 +24,7 @@ export default function isLiked(postId, userId) {
     }
   }
 
-export default function likeCounter(postId){
+export function likeCounter(postId){
 
   if (post instanceof Post){
     post.setLikes(post.getLikes() + 1)
