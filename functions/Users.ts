@@ -1,0 +1,71 @@
+export const fetchUsers = async (): Promise<{ name: string; username: string; email: string }[]> => {  
+  const BACKEND_URL = 'http://47.6.38.141:5001/users';
+
+  try {
+    const res = await fetch(BACKEND_URL);
+    console.log('Status:', res.status);
+
+    if (!res.ok) {
+      throw new Error(`Network response was not ok: ${res.status}`);
+    }
+
+    const users = await res.json();
+    console.log('Fetched users:', users);
+
+    // Ensure we return only necessary user fields with hashed usernames as IDs
+    const processedUsers = users.map((user: { name: string; username: string; email: string }) => {
+      return {
+        name: user.name,
+        username: user.username,
+        email: user.email,
+      };
+    });
+
+    return processedUsers;
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error('Fetch error:', err.message);
+    } else {
+      console.error('Unknown error occurred while fetching users.');
+    }
+    return [];
+  }
+};
+
+export const addUser = async (name: string, username: string, email: string, password: string): Promise<boolean> => {
+  const BACKEND_URL = 'http://47.6.38.141:5001/users';
+
+  const newUser = {
+    name,
+    username,
+    email,
+    password,
+  };
+
+  try {
+    const res = await fetch(BACKEND_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(newUser),
+    });
+
+    console.log('Status:', res.status);
+
+    if (!res.ok) {
+      throw new Error(`Network response was not ok: ${res.status}`);
+    }
+
+    const data = await res.json();
+    console.log('User added:', data);
+    return true;
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error('Fetch error:', err.message);
+    } else {
+      console.error('Unknown error occurred while adding user.');
+    }
+    return false;
+  }
+};
