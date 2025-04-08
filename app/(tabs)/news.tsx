@@ -1,9 +1,10 @@
-import { Image, StyleSheet, Platform } from 'react-native';
+import { Image, StyleSheet, Platform, View } from 'react-native';
 
 import { HelloWave } from '@/components/HelloWave';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
+import Search from '@/components/Search';
 
 
 export default function HomeScreen() {
@@ -17,19 +18,23 @@ export default function HomeScreen() {
         />
       }>
       <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">News Page</ThemedText>
+        <ThemedText type="title">News</ThemedText>
+        <View style={styles.searchContainer}>
+          <Search></Search>
+        </View>
       </ThemedView>
-
-      
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
     gap: 8,
+  },
+  searchContainer: {
+    alignItems: 'center',
+    marginTop: 20,
   },
   stepContainer: {
     gap: 8,

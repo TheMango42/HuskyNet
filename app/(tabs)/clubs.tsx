@@ -18,10 +18,12 @@ export default function HomeScreen() {
           style={styles.headerImage}
         />
       }>
-      <ThemedView>
+      <ThemedView style={styles.stepContainer}>
         <View style={styles.titleContainer}>
           <ThemedText type="title">Clubs</ThemedText>
-          <Search></Search>
+          <View style={styles.searchContainer}>
+            <Search></Search>
+          </View>
         </View>
         <ClubComponent id='000001' />
       </ThemedView>
@@ -31,12 +33,14 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   titleContainer: {
-    flexDirection: 'row',
+    flexDirection: 'column',
+  },
+  searchContainer: {
     alignItems: 'center',
-    marginBottom: 10,
+    marginTop: 20,
   },
   stepContainer: {
-    gap: 8,
+    gap: 20,
     marginBottom: 8,
   },
   headerImage: {

@@ -22,7 +22,7 @@ export function ClubComponent(props: PostID) {
     const dynamicTextColor = colorScheme === 'dark' ? '#D3D3D3' : 'black';
 
     return (
-        <View style={styles.postContainer}>
+        <Pressable onClick={() => 'Clicked!'} activeOpacity={0.5} style={styles.postContainer}>
             <View style={styles.profileContainer}>
                 <Image source={require('@/assets/images/hpb_club.png')} style={styles.clubImage} />
             </View>
@@ -41,8 +41,7 @@ export function ClubComponent(props: PostID) {
                     </View>
                 </Pressable>
             </View>
-
-        </View>
+        </Pressable>
     )
 }
 

@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Platform, TextInput, useColorScheme } from 'react-native';
+import { Image, StyleSheet, Platform, TextInput, useColorScheme, View } from 'react-native';
 
 import React from 'react';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
@@ -21,23 +21,22 @@ export default function HomeScreen() {
       }>
 
       <ThemedView style={styles.stepContainer}>
-        <ThemedView style={styles.titleContainer}>
-          <Search></Search>
-        </ThemedView>
         <ThemedText type="title">Explore</ThemedText>
-        <PostComponent id={'000001'}/>  
-        <PostComponent id={'000002'}/>  
-        <PostComponent id={'000003'}/>  
-        <PostComponent id={'000004'}/>  
+        <View style={styles.searchContainer}>
+          <Search></Search>
+        </View>
+        <PostComponent id={'000001'} />
+        <PostComponent id={'000002'} />
+        <PostComponent id={'000003'} />
+        <PostComponent id={'000004'} />
       </ThemedView>
     </ParallaxScrollView>
   );
 }
 
 const styles = StyleSheet.create({
-  titleContainer: {
+  searchContainer: {
     alignItems: 'center',
-    gap: 30,
   },
   stepContainer: {
     gap: 20,
@@ -57,5 +56,5 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
     margin: 10,
     color: 'white',
-},
+  },
 });
