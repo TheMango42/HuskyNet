@@ -12,8 +12,8 @@ import { router } from 'expo-router';
 export default function frontPage() {
   var [email, setEmail] = React.useState('');
   var [password, setPassword] = React.useState('');
-  var [id, setID] = React.useState(''); //ID should be a variable hashed from given email that must be unique. 
   var [name, setName] = React.useState('');
+  var [userName, setUserName] = React.useState('');
   const getData = async () => {
     try {
       //const p = await hashData(password);
@@ -25,6 +25,8 @@ export default function frontPage() {
         body: JSON.stringify({
           email: email,
           password: password,
+          name: name,
+          userName: userName,
         }),
       })
         .then(res => {
@@ -74,9 +76,19 @@ export default function frontPage() {
 
         <TextInput
           style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
-          placeholder="Username"
+          placeholder="Name"
           id="outlined-basic"
           onChangeText={newText => setName(newText)}
+          value={name}
+          secureTextEntry={true}
+          selectionColor={'black'}
+        >
+        </TextInput>
+        <TextInput
+          style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
+          placeholder="Username"
+          id="outlined-basic"
+          onChangeText={newText => setUserName(newText)}
           value={name}
           secureTextEntry={true}
           selectionColor={'black'}
@@ -115,7 +127,7 @@ export default function frontPage() {
           <TouchableOpacity
             style={styles.link}
             activeOpacity={0.5}
-            onPress={() => { router.push('/(tabs)/login') }}
+            onPress={() => { router.push('./(tabs)/login.tsx') }}
           >
             <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               Already have an account? Login
