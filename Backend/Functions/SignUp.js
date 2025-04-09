@@ -1,5 +1,5 @@
 import Graph from "graphology"
-import Vertex from "Backend/Classes/Vertex.js"
+import Vertex from "../Classes/Vertex.js"
 /*
   SignUp 
   - has a few functions to parse the email, verify the email, and turn the email into an ID and 
@@ -12,6 +12,10 @@ import Vertex from "Backend/Classes/Vertex.js"
   notes 3/26
   - 
 */
+export function sendToBackend(email, password, username, name){
+    const a = emailSplit(email);
+}
+
 
 export function emailSplit(email){
     const emailArray = email.split('@'); //splits email at the @ and returns array of the first half (ajsaylor) in [0] and second half (mtu.edu) in [1] 

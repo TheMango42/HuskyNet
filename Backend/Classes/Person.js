@@ -18,27 +18,23 @@ import {hashData} from "../Functions/encryption.js"
   - 
 */
 export default class Person {
-    #id = null; // comes from the email
+    
     #name = null;
     #username = null;
     #email = null;
     #password = null;
     #loggedIn = false;
 
-    constructor(id,name, username,email,password) {
-        this.#id = id;
+    constructor(name, username,email,password) {
         this.#name = name;
         this.#username = username;
         this.#email = email;
         const p = async (password)=> {return await hashData(password);}
-        this.password = p;
+        this.password = p(password);
     }
 
     getLoggedIn(){
         return this.#loggedIn;
-    }
-    getId() {
-        return this.#id;
     }
 
     getName() {
@@ -55,10 +51,6 @@ export default class Person {
 
     getPassword() {
         return this.#password;
-    }
-
-    setId(id) {
-        this.#id = id;
     }
 
     setName(name) {
