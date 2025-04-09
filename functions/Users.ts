@@ -69,3 +69,30 @@ export const addUser = async (name: string, username: string, email: string, pas
     return false;
   }
 };
+
+// function to fetch all necessary info from user page summary
+export const fetchUserProfile = async (username: string): Promise<boolean> => {
+  const BACKEND_URL = `http://47.6.38.141:5001/users/`;
+  
+  try {
+    const res = await fetch(BACKEND_URL);
+    console.log('Status:', res.status);
+
+    if (!res.ok) {
+      throw new Error(`Network response was not ok: ${res.status}`);
+    }
+
+    const user = await res.json();
+    console.log('Fetched user profile:', user);
+
+    // Assuming the function returns true if the user profile is successfully fetched
+    return true;
+  } catch (err: unknown) {
+    if (err instanceof Error) {
+      console.error('Fetch error:', err.message);
+    } else {
+      console.error('Unknown error occurred while fetching user.');
+    }
+    return false;
+  }
+};
