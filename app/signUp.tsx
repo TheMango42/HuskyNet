@@ -7,37 +7,16 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { router } from 'expo-router';
-//import hashData from '../Backend/Functions/encryption.js';
+import {sendToBackend} from '../Backend/Functions/SignUp.js'
+
 
 export default function frontPage() {
   var [email, setEmail] = React.useState('');
   var [password, setPassword] = React.useState('');
   var [name, setName] = React.useState('');
   var [userName, setUserName] = React.useState('');
-  const getData = async () => {
-    try {
-      //const p = await hashData(password);
-      const res = await fetch('http://47.6.38.141:5001/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          name: name,
-          userName: userName,
-        }),
-      })
-        .then(res => {
-          return res.json()
-        }).then(data => console.log(data));
-
-
-    } catch (e) {
-      console.error('Error during fetch:', e);
-    }
-  }
+  var [loading, setLoading] = React.useState(false)
+  
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }/*this color shows if image does not appear */}
@@ -99,7 +78,18 @@ export default function frontPage() {
           <Pressable
             style={styles.button}
             activeOpacity={0.5}
-            onPress={() => { getData() }}
+            onPress={async () => { 
+              setLoading(true);
+              const result = await sendToBackend(email, password, userName, name) 
+              if (result){
+                //send to home?
+              }
+              else{
+                alert(result);//error message?
+              }
+              setLoading(false);
+            }}
+            disabled={loading} //stops the button from being clicked twice
           >
             {/// function with database call here -> then redirect to account(?) page with user data
             }
@@ -113,7 +103,7 @@ export default function frontPage() {
           <Pressable
             style={styles.button}
             activeOpacity={0.5}
-            onPress={() => { getData() }}
+            onPress={() => {  }}
           >
             {/// Should eventully lead to a help page.
             }

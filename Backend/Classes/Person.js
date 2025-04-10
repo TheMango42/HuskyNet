@@ -29,8 +29,7 @@ export default class Person {
         this.#name = name;
         this.#username = username;
         this.#email = email;
-        const p = async (password)=> {return await hashData(password);}
-        this.password = p(password);
+        this.password = password;
     }
 
     getLoggedIn(){

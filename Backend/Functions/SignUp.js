@@ -1,10 +1,15 @@
 import Graph from "graphology"
 import Vertex from "../Classes/Vertex.js"
+import Person from '../Classes/Person.js'
+import { hashData } from "./encryption.js";
+import {addUser} from "../../functions/Users.js"
+import { addToGraph } from "./graphFunctions.js";
 /*
   SignUp 
   - has a few functions to parse the email, verify the email, and turn the email into an ID and 
   
   Functions:
+  - sendToBackend(email, password, username, name) : returns a boolean if it succeeded
   - emailSplit(email) returns : Array[emailBefore@, emailAfter@]
   - emailToAscii(emailBefore@) returns : ID String
   - verify(emailAfter@) returns : boolean
@@ -12,8 +17,21 @@ import Vertex from "../Classes/Vertex.js"
   notes 3/26
   - 
 */
-export function sendToBackend(email, password, username, name){
+export async function sendToBackend(email, password, username, name) {
+    if(email == null || password == null || username == null || name == null){
+        throw new Error('Must Fill All Spaces')
+    }
     const a = emailSplit(email);
+    if (!verify(a[2])) {
+        throw new Error("Must Be an MTU Email");
+    }
+    const id = emailToAscii(a[1]);
+    const pass = await hashData(password);
+    const p = new Person(name, username, email, pass);
+    await addUser(name, username, email, pass);
+    const v = new Vertex(p, null, null);
+    addToGraph(v);
+    return true;
 }
 
 
