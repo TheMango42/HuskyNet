@@ -10,7 +10,7 @@ import { router } from 'expo-router';
 import {sendToBackend} from '../Backend/Functions/SignUp.js'
 
 
-export default function frontPage() {
+export default function FrontPage() {
   var [email, setEmail] = React.useState('');
   var [password, setPassword] = React.useState('');
   var [name, setName] = React.useState('');
@@ -68,7 +68,7 @@ export default function frontPage() {
           placeholder="Username"
           id="outlined-basic"
           onChangeText={newText => setUserName(newText)}
-          value={name}
+          value={userName}
           secureTextEntry={true}
           selectionColor={'black'}
         >
@@ -80,12 +80,11 @@ export default function frontPage() {
             activeOpacity={0.5}
             onPress={async () => { 
               setLoading(true);
-              const result = await sendToBackend(email, password, userName, name) 
-              if (result){
-                //send to home?
+              try{
+                const result = await sendToBackend(email, password, userName, name); 
               }
-              else{
-                alert(result);//error message?
+              catch(error){
+                alert(error);
               }
               setLoading(false);
             }}

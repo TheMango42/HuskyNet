@@ -1,8 +1,7 @@
 import Graph from "graphology"
 import Vertex from "../Classes/Vertex.js"
 import Person from '../Classes/Person.js'
-import { hashData } from "./encryption.js";
-import {addUser} from "../../functions/Users.js"
+import {addUser} from "../../functions/Users.ts"
 import { addToGraph } from "./graphFunctions.js";
 /*
   SignUp 
@@ -26,9 +25,8 @@ export async function sendToBackend(email, password, username, name) {
         throw new Error("Must Be an MTU Email");
     }
     const id = emailToAscii(a[1]);
-    const pass = await hashData(password);
-    const p = new Person(name, username, email, pass);
-    await addUser(name, username, email, pass);
+    const p = new Person(name, username, email, password);
+    await addUser(name, username, email, password); //doesn't hash password yet
     const v = new Vertex(p, null, null);
     addToGraph(v);
     return true;

@@ -1,4 +1,3 @@
-import {hashData} from "../Functions/encryption.js"
 /*
   Person Class
   - Holds the data for each user

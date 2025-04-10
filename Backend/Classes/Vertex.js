@@ -1,8 +1,8 @@
 import Person from "./Person.js";
 import Profile from "./Profile.js";
-import {addEdge, removeEdge} from "../Functions/graphFunctions.js"
-import Event from "./Event.js"
-import {List} from 'linked-list'
+import {addEdge, removeEdge} from "../Functions/graphFunctions.js";
+import Event from "./Event.js";
+import {List} from 'linked-list';
 /*
   Vertex Class
   - Holds the data for each created Person

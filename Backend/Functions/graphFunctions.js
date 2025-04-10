@@ -2,7 +2,7 @@ import Graph from "graphology"
 import {getGraph as g} from "./graphmanager.js"
 import Vertex from "../Classes/Vertex.js"
 import Post from "../Classes/Post.js"
-import Club from "../Casses/Club.js"
+import Club from "../Classes/Club.js"
 import Event from "../Classes/Event.js"
 import {emailToAscii, emailSplit} from "./SignUp.js"
 /*
