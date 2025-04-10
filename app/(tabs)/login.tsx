@@ -8,7 +8,7 @@
   - TextInput fields are messy. Should make component since they're used in multiple places
   - Button is already a component (Pressable), however maybe the styling should be included with the component for consistency.
 */
-
+import {/*getUser or something*/} from "../../functions/Users.ts";
 import { Image, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -23,29 +23,7 @@ import { router } from 'expo-router';
 export default function HomeScreen() {
   var [email, setEmail] = React.useState('');
   var [password, setPassword] = React.useState('');
-  const getData = async () => {
-    try {
-      
-      const res = await fetch('http://47.6.38.141:5001/', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-        }),
-      })
-        .then(res => {
-          return res.json()
-        }).then(data => console.log(data));
-
-
-    } catch (e) {
-      console.error('Error during fetch:', e);
-    }
-  }
-
+  var [loading, setLoading] = React.useState(true);
   return (
     <ParallaxScrollView
       headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }/*this color shows if image does not appear */}
@@ -97,7 +75,17 @@ export default function HomeScreen() {
           <Pressable
             style={styles.button}
             activeOpacity={0.5}
-            onPress={() => { getData() }}
+            onPress={async () => { 
+              setLoading(true);
+              try{
+                //await ( email, password); getUser function needed
+              }
+              catch(error){
+                alert(error);
+              }
+              setLoading(false);
+              }}
+              disabled={loading} //stops the button from being clicked twice
           >
             {/// function with database call here -> then redirect to account(?) page with user data
             }
