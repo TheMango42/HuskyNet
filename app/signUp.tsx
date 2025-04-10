@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
+import { Image, View, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -8,6 +8,7 @@ import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { router } from 'expo-router';
 import {sendToBackend} from '../Backend/Functions/SignUp.js'
+import { ColorSpace } from 'react-native-reanimated';
 
 
 export default function FrontPage() {
@@ -18,20 +19,13 @@ export default function FrontPage() {
   var [loading, setLoading] = React.useState(false)
   
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }/*this color shows if image does not appear */}
-      headerImage={
-        <Image
-          source={require('@/assets/images/news.jpg')} //Fucks witht header image, I think
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.mainContainer}>
 
+      <ThemedView style={styles.mainContainer}>
+        <View style={styles.spacer}>
         <ThemedView style={styles.titleContainer}>
           <ThemedText type="title">Sign Up</ThemedText>
         </ThemedView>
-
+        
         <TextInput
           style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
           id="outlined-basic"
@@ -39,6 +33,7 @@ export default function FrontPage() {
           onChangeText={newText => setEmail(newText)}
           value={email}
           selectionColor={'white'}
+          
         >
         </TextInput>
 
@@ -121,14 +116,12 @@ export default function FrontPage() {
             <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               Already have an account? Login
             </ThemedText>
+            
           </TouchableOpacity>
         </ThemedView>
-
+        </View>
       </ThemedView>
-
-    </ParallaxScrollView>
-  );
-}
+)}
 const styles = StyleSheet.create({
   mainContainer: {
 
@@ -148,12 +141,6 @@ const styles = StyleSheet.create({
     marginTop: 8,
     marginBottom: 8,
   },
-  headerImage: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover", // Makes the image fit while covering
-    position: 'absolute',
-  },
   button: {
     alignItems: 'center',
     justifyContent: 'center',
@@ -162,8 +149,8 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     backgroundColor: '#ffcd00',
     borderColor: 'yellow',
-    marginTop: 50,
-    marginBottom: 10,
+    marginTop: 25,
+    marginBottom: 25,
   },
   link: {
 
@@ -191,6 +178,8 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   spacer: {
+    alignItems: 'center',
     marginTop: 100,
+    marginBottom: 200,
   }
 });
