@@ -7,7 +7,7 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { router } from 'expo-router';
-import {sendToBackend} from '../Backend/Functions/SignUp.js'
+import {addUser} from '../functions/Users.ts'
 import { ColorSpace } from 'react-native-reanimated';
 
 
@@ -76,7 +76,7 @@ export default function FrontPage() {
             onPress={async () => { 
               setLoading(true);
               try{
-                const result = await sendToBackend(email, password, userName, name); 
+                await addUser(name, userName, email, password); 
               }
               catch(error){
                 alert(error);
