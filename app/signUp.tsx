@@ -54,7 +54,6 @@ export default function FrontPage() {
           id="outlined-basic"
           onChangeText={newText => setName(newText)}
           value={name}
-          secureTextEntry={true}
           selectionColor={'black'}
         >
         </TextInput>
@@ -64,7 +63,6 @@ export default function FrontPage() {
           id="outlined-basic"
           onChangeText={newText => setUserName(newText)}
           value={userName}
-          secureTextEntry={true}
           selectionColor={'black'}
         >
         </TextInput>
