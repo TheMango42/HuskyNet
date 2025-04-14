@@ -8,8 +8,8 @@
   - TextInput fields are messy. Should make component since they're used in multiple places
   - Button is already a component (Pressable), however maybe the styling should be included with the component for consistency.
 */
-import {/*getUser or something*/} from "../../functions/Users.ts";
-import { Image, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
+//import {/*getUser or something*/} from "../../functions/Users.ts";
+import { Image, View, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -25,22 +25,15 @@ export default function HomeScreen() {
   var [password, setPassword] = React.useState('');
   var [loading, setLoading] = React.useState(true);
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }/*this color shows if image does not appear */}
-      headerImage={
-        <Image
-          source={require('@/assets/images/news.jpg')}
-          style={styles.headerImage}
-        />
-      }>
-      <ThemedView style={styles.mainContainer}>
+    
+    <ThemedView style={styles.mainContainer}>
+      <View>
+      <ThemedView style={styles.titleContainer}>
+        <ThemedText type="title">Welcome</ThemedText>
+      </ThemedView>
 
-        <ThemedView style={styles.titleContainer}>
-          <ThemedText type="title">Welcome</ThemedText>
-        </ThemedView>
-
-        <ThemedView style={styles.stepContainer}>
-          <TextInput
+      <ThemedView style={styles.stepContainer}>
+        <TextInput
             style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
             id="outlined-basic"
             placeholder="Username"
@@ -94,7 +87,7 @@ export default function HomeScreen() {
             </ThemedText>
           </Pressable>
         </ThemedView>
-
+        
         <ThemedView >
           <TouchableOpacity
             style={styles.link}
@@ -106,11 +99,10 @@ export default function HomeScreen() {
             </ThemedText>
           </TouchableOpacity>
         </ThemedView>
-
+        </View>
       </ThemedView>
-    </ParallaxScrollView>
-  );
-}
+   
+)};
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -130,12 +122,6 @@ const styles = StyleSheet.create({
     gap: 8,
     marginTop: 8,
     marginBottom: 8,
-  },
-  headerImage: {
-    width: "100%",
-    height: "100%",
-    resizeMode: "cover", // Makes the image fit while covering
-    position: 'absolute',
   },
   button: {
     alignItems: 'center',
@@ -174,6 +160,8 @@ const styles = StyleSheet.create({
     color: 'white',
   },
   spacer: {
+    alignItems: 'center',
     marginTop: 100,
+    marginBottom: 200,
   }
 });
