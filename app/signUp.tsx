@@ -110,7 +110,7 @@ export default function FrontPage() {
           <TouchableOpacity
             style={styles.link}
             activeOpacity={0.5}
-            onPress={() => { router.push('/(tabs)/login') }}
+            onPress={() => { router.push('/login') }}
           >
             <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               Already have an account? Login

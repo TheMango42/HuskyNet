@@ -1,6 +1,6 @@
 import Search from "../../components/Search.tsx";
 
-function searchPage() {
+export function searchPage() {
     const searchResults = Search.search;
     return searchResults;
 }

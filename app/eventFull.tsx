@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link, Stack } from 'expo-router';
 import { StyleSheet } from 'react-native';
-
+import { Text, View } from 'react-native';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 
@@ -14,7 +14,7 @@ type eventProps = {
     location?: string;
 }
 
-export function EventFullscreen(props: eventProps) {
+export default function EventFullscreen(props: eventProps) {
   return (
     <>
       <Stack.Screen options={{ title: 'Event Name' }} />
