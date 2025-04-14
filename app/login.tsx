@@ -25,90 +25,83 @@ export default function HomeScreen() {
   var [password, setPassword] = React.useState('');
   var [loading, setLoading] = React.useState(true);
   return (
-    
+
     <ThemedView style={styles.mainContainer}>
-      <View>
-      <ThemedView style={styles.titleContainer}>
+      <View style={styles.titleContainer}>
         <ThemedText type="title">Welcome</ThemedText>
-      </ThemedView>
+      </View>
 
       <ThemedView style={styles.stepContainer}>
         <TextInput
-            style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
-            id="outlined-basic"
-            placeholder="Username"
-            keyboardType='email-address'
-            onChangeText={newText => setEmail(newText)}
-            value={email}
-            selectionColor={useColorScheme() === 'dark' ? 'white' : 'black'}
-          >
+          style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
+          id="outlined-basic"
+          placeholder="Username"
+          keyboardType='email-address'
+          onChangeText={newText => setEmail(newText)}
+          value={email}
+          selectionColor={useColorScheme() === 'dark' ? 'white' : 'black'}
+        >
 
-          </TextInput>
+        </TextInput>
 
-          {/*test function call
+        {/*test function call
             <ThemedText>{}</ThemedText>
             */}
 
-          <TextInput
-            style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
-            placeholder="Password"
-            keyboardType='default'
-            id="outlined-basic"
-            onChangeText={newText => setPassword(newText)}
-            value={password}
-            secureTextEntry={true}
-            selectionColor={useColorScheme() === 'dark' ? 'white' : 'black'}
-          >
-
-          </TextInput>
-        </ThemedView>
+        <TextInput
+          style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
+          placeholder="Password"
+          keyboardType='default'
+          id="outlined-basic"
+          onChangeText={newText => setPassword(newText)}
+          value={password}
+          secureTextEntry={true}
+          selectionColor={useColorScheme() === 'dark' ? 'white' : 'black'}
+        >
+        </TextInput>
 
         {/*Pressables*/}
-        <ThemedView >
-          <Pressable
-            style={styles.button}
-            activeOpacity={0.5}
-            onPress={async () => { 
-              setLoading(true);
-              try{
-                //await ( email, password); getUser function needed
-              }
-              catch(error){
-                alert(error);
-              }
-              setLoading(false);
-              }}
-              disabled={loading} //stops the button from being clicked twice
-          >
-            {/// function with database call here -> then redirect to account(?) page with user data
+        <TouchableOpacity
+          style={styles.button}
+          activeOpacity={0.5}
+          onPress={async () => {
+            setLoading(true);
+            try {
+              //await ( email, password); getUser function needed
             }
-            <ThemedText darkColor='#black' lightColor='black' type='defaultSemiBold'>
-              LOGIN
-            </ThemedText>
-          </Pressable>
-        </ThemedView>
-        
-        <ThemedView >
-          <TouchableOpacity
-            style={styles.link}
-            activeOpacity={0.5}
-            onPress={() => { router.push('/signUp') }}
-          >
-            <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
-              Don't have an account? Sign Up
-            </ThemedText>
-          </TouchableOpacity>
-        </ThemedView>
-        </View>
+            catch (error) {
+              alert(error);
+            }
+            setLoading(false);
+          }}
+          disabled={loading} //stops the button from being clicked twice
+        >
+          {/// function with database call here -> then redirect to account(?) page with user data
+          }
+          <ThemedText darkColor='#black' lightColor='black' type='defaultSemiBold'>
+            LOGIN
+          </ThemedText>
+        </TouchableOpacity>
+
+        <TouchableOpacity
+          style={styles.link}
+          activeOpacity={0.5}
+          onPress={() => { router.push('/signUp') }}
+        >
+          <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
+            Don't have an account? Sign Up
+          </ThemedText>
+        </TouchableOpacity>
       </ThemedView>
-   
-)};
+    </ThemedView>
+
+  )
+};
 
 const styles = StyleSheet.create({
   mainContainer: {
-
-    alignItems: 'center',
-
+    height: '100%',
+    justifyContent: 'center',
   },
   titleContainer: {
     flexDirection: 'column',
