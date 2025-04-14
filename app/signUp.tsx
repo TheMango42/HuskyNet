@@ -122,15 +122,15 @@ export default function FrontPage() {
 )}
 const styles = StyleSheet.create({
   mainContainer: {
-
+    height: '100%',
     alignItems: 'center',
-
+    justifyContent: 'flex-end',
   },
   titleContainer: {
     flexDirection: 'column',
     alignItems: 'center',
     gap: 8,
-    marginBottom: 10,
+    marginBottom: 30,
   },
   stepContainer: {
     flexDirection: 'column',
