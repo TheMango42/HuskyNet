@@ -4,6 +4,8 @@ import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { ThemedText } from './ThemedText';
 import { IconSymbol } from './ui/IconSymbol';
+import { router } from 'expo-router';
+import { PlusCheck } from './PlusCheck';
 
 type PostID = {
     id: string,
@@ -22,7 +24,10 @@ export function EventComponent(props: PostID) {
     const dynamicTextColor = colorScheme === 'dark' ? '#D3D3D3' : 'black';
 
     return (
-        <Pressable onClick={() => 'Clicked!'} activeOpacity={0.5} style={styles.postContainer}>
+        <Pressable 
+        activeOpacity={0.5} 
+        style={styles.postContainer}
+        onPress={() => { router.push('/eventFull') }}>
             <View style={styles.profileContainer}>
                 <Image source={require('@/assets/images/carni.jpg')} style={styles.clubImage} />
             </View>
@@ -34,13 +39,7 @@ export function EventComponent(props: PostID) {
                         Make snow statues, eat food, and have fun with your friends!
                     </Text>
                 </View>
-
-                <Pressable onPress={() => 'Joined!'} activeOpacity={0.5}>
-                    <View style={styles.interactButton}>
-                        <IconSymbol name={'plus.circle'} size={48} color={dynamicTextColor} />
-                        <ThemedText type="defaultSemiBold">RSVP</ThemedText>
-                    </View>
-                </Pressable>
+                <PlusCheck/>
             </View>
         </Pressable>       
     )
