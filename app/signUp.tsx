@@ -80,7 +80,7 @@ export default function FrontPage() {
                 alert(error);
               }
               setLoading(false);
-              router.push('/(tabs)/login') 
+              router.push('/login') 
             }}
             disabled={loading} //stops the button from being clicked twice
           >
