@@ -1,4 +1,4 @@
-import { StyleSheet, Image, ScrollView, View, Dimensions, useColorScheme } from 'react-native';
+import { StyleSheet, Image, ScrollView, View, Dimensions, useColorScheme, Touchable, TouchableOpacity } from 'react-native';
 import { ExternalLink } from '@/components/ExternalLink';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
@@ -7,6 +7,7 @@ import React from 'react';
 import { PostComponent } from '@/components/PostComponent';
 import { ClubComponent } from '@/components/ClubComponent';
 import { EventComponent } from '@/components/EventComponent';
+import { router } from 'expo-router';
 
 const textColors = () => {
     return useColorScheme() === 'dark' ? '#D3D3D3' : 'black';
@@ -71,6 +72,15 @@ export default function TabTwoScreen() {
           </View>
         </View>
 
+        <TouchableOpacity
+          style={styles.postButtonContainer}
+          onPress={() => {
+            router.push('/createPost');
+          }}
+        >
+          <ThemedText type="defaultSemiBold">New Post</ThemedText>
+        </TouchableOpacity>
+
       <View style={styles.tabViewContainer}>
         <TabView
           navigationState={{ index, routes }}
@@ -113,6 +123,10 @@ const styles = StyleSheet.create({
   profileInfoContainer: {
     paddingHorizontal: 15,
     justifyContent: 'center',
+  },
+  postButtonContainer: {
+    marginLeft: 30,
+    marginTop: 10,
   },
   profileName: {
     fontSize: 24,
