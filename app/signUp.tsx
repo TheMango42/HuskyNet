@@ -93,17 +93,17 @@ export default function FrontPage() {
         </ThemedView>
 
         <ThemedView >
-          <Pressable
-            style={styles.button}
+          <TouchableOpacity
+            style={styles.link}
             activeOpacity={0.5}
-            onPress={() => {  }}
-          >
-            {/// Should eventully lead to a help page.
-            }
-            <ThemedText darkColor='#black' lightColor='black' type='defaultSemiBold'>
+            onPress={() => { router.push('/helpPage') }}
+          >            
+          {
+          }
+            <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               HELP
             </ThemedText>
-          </Pressable>
+          </TouchableOpacity>
         </ThemedView>
 
         <ThemedView>
@@ -114,10 +114,10 @@ export default function FrontPage() {
           >
             <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               Already have an account? Login
-            </ThemedText>
-            
+            </ThemedText>            
           </TouchableOpacity>
         </ThemedView>
+
         </View>
       </ThemedView>
 )}
