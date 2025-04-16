@@ -92,6 +92,20 @@ export default function HomeScreen() {
             Don't have an account? Sign Up
           </ThemedText>
         </TouchableOpacity>
+
+        <ThemedView >
+          <TouchableOpacity
+            style={styles.link}
+            activeOpacity={0.5}
+            onPress={() => { router.push('/helpPage') }}
+            >            
+            {
+            }
+            <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
+              HELP
+            </ThemedText>
+          </TouchableOpacity>
+        </ThemedView>
       </ThemedView>
     </ThemedView>
 

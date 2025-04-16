@@ -12,10 +12,27 @@ import { ColorSpace } from 'react-native-reanimated';
 
 export default function helpPage(){
     
-return(null)
-}
+return(
+  <ThemedView style ={styles.mainContainer}>
+    <View style ={styles.spacer}>
+      <ThemedView style={styles.titleContainer}>
+                <ThemedText type="title">Figure It Out For Now</ThemedText>
+      </ThemedView>
+
+      <TouchableOpacity
+                style={styles.link}
+                activeOpacity={0.5}
+                onPress={() => { router.replace('/signUp') }}
+              >
+                <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
+                  BACK TO HOME
+                </ThemedText>
+              </TouchableOpacity>
+    </View>
+  </ThemedView>
 
 
+)}
 const styles = StyleSheet.create({
   mainContainer: {
     height: '100%',

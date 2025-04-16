@@ -92,6 +92,18 @@ export default function FrontPage() {
           </Pressable>
         </ThemedView>
 
+        <ThemedView>
+          <TouchableOpacity
+            style={styles.link}
+            activeOpacity={0.5}
+            onPress={() => { router.replace('/login') }}
+          >
+            <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
+              Already have an account? Login
+            </ThemedText>            
+          </TouchableOpacity>
+        </ThemedView>
+
         <ThemedView >
           <TouchableOpacity
             style={styles.link}
@@ -103,18 +115,6 @@ export default function FrontPage() {
             <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               HELP
             </ThemedText>
-          </TouchableOpacity>
-        </ThemedView>
-
-        <ThemedView>
-          <TouchableOpacity
-            style={styles.link}
-            activeOpacity={0.5}
-            onPress={() => { router.replace('/login') }}
-          >
-            <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
-              Already have an account? Login
-            </ThemedText>            
           </TouchableOpacity>
         </ThemedView>
 
