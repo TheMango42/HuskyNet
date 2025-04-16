@@ -10,7 +10,10 @@ import { router } from 'expo-router';
 import {addUser} from '../functions/Users.ts'
 import { ColorSpace } from 'react-native-reanimated';
 
-
+export default function helpPage(){
+    
+return(null)
+}
 
 
 const styles = StyleSheet.create({
