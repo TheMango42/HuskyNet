@@ -80,7 +80,7 @@ export default function FrontPage() {
                 alert(error);
               }
               setLoading(false);
-              router.push('/login') 
+              router.replace('/login') 
             }}
             disabled={loading} //stops the button from being clicked twice
           >
@@ -110,7 +110,7 @@ export default function FrontPage() {
           <TouchableOpacity
             style={styles.link}
             activeOpacity={0.5}
-            onPress={() => { router.push('/login') }}
+            onPress={() => { router.replace('/login') }}
           >
             <ThemedText darkColor='#D3D3D3' lightColor='black' type='default'>
               Already have an account? Login
