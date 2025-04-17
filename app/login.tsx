@@ -8,7 +8,6 @@
   - TextInput fields are messy. Should make component since they're used in multiple places
   - Button is already a component (Pressable), however maybe the styling should be included with the component for consistency.
 */
-//import {/*getUser or something*/} from "../../functions/Users.ts";
 import { Image, View, StyleSheet, Touchable, TouchableOpacity } from 'react-native';
 import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
@@ -18,12 +17,13 @@ import { useColorScheme } from '@/hooks/useColorScheme';
 import React from 'react';
 import Pressable from '@/components/ui/Pressable';
 import { router } from 'expo-router';
+import { checkUser } from '@/functions/Users';
 
 
 export default function HomeScreen() {
   var [email, setEmail] = React.useState('');
   var [password, setPassword] = React.useState('');
-  var [loading, setLoading] = React.useState(true);
+  var [loading, setLoading] = React.useState(false);
   return (
 
     <ThemedView style={styles.mainContainer}>
@@ -35,7 +35,7 @@ export default function HomeScreen() {
         <TextInput
           style={[useColorScheme() === 'dark' ? styles.textInputDark : styles.textInputLight]}
           id="outlined-basic"
-          placeholder="Username"
+          placeholder="Email"
           keyboardType='email-address'
           onChangeText={newText => setEmail(newText)}
           value={email}
@@ -67,7 +67,11 @@ export default function HomeScreen() {
           onPress={async () => {
             setLoading(true);
             try {
-              //await ( email, password); getUser function needed
+              //await (email, password); getUser function needed
+              const loggedin = await checkUser(email, password);
+              if(loggedin){
+                router.replace('/(tabs)/profile');
+              }
             }
             catch (error) {
               alert(error);

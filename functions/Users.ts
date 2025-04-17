@@ -70,6 +70,44 @@ export const addUser = async (name: string, username: string, email: string, pas
   }
 };
 
+export const checkUser = async (email: string, password: string): Promise<boolean> =>{
+  const BACKEND_URL = 'http://47.6.38.141:5001/login';
+  const userData = {
+    email,
+    password
+  }
+  try{
+    const res = await fetch(BACKEND_URL, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(userData),
+    });
+
+    console.log('Status:', res.status);
+
+    if (res.status == 300) {
+      alert('Password Incorrect');
+      return false;
+    }
+    else if(!res.ok){
+      throw new Error(`Network response was not ok: ${res.status}`);
+    }else{
+      const data = await res.json();
+      console.log('User retrieved:', data);
+      return true;
+    }
+  }catch(e: unknown){
+    if (e instanceof Error) {
+      console.error('Fetch error:', e.message);
+    } else {
+      console.error('Unknown error occurred while checking user.');
+    }
+    return false;
+  }
+
+}
 // function to fetch all necessary info from user page summary
 export const fetchUserProfile = async (username: string): Promise<boolean> => {
   const BACKEND_URL = `http://47.6.38.141:5001/users/`;
