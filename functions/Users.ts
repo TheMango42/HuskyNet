@@ -1,5 +1,5 @@
 export const fetchUsers = async (): Promise<{ name: string; username: string; email: string }[]> => {  
-  const BACKEND_URL = 'http://47.6.38.141:5001/users';
+  const BACKEND_URL = 'http://47.225.67.91:5001/users';
 
   try {
     const res = await fetch(BACKEND_URL);
@@ -33,7 +33,7 @@ export const fetchUsers = async (): Promise<{ name: string; username: string; em
 };
 
 export const addUser = async (name: string, username: string, email: string, password: string): Promise<boolean> => {
-  const BACKEND_URL = 'http://47.6.38.141:5001/users';
+  const BACKEND_URL = 'http://47.225.67.91:5001/users';
 
   const newUser = {
     name,
@@ -71,7 +71,7 @@ export const addUser = async (name: string, username: string, email: string, pas
 };
 
 export const checkUser = async (email: string, password: string): Promise<boolean> =>{
-  const BACKEND_URL = 'http://47.6.38.141:5001/login';
+  const BACKEND_URL = 'http://47.225.67.91:5001/login';
   const userData = {
     email,
     password
@@ -110,7 +110,7 @@ export const checkUser = async (email: string, password: string): Promise<boolea
 }
 // function to fetch all necessary info from user page summary
 export const fetchUserProfile = async (username: string): Promise<boolean> => {
-  const BACKEND_URL = `http://47.6.38.141:5001/users/`;
+  const BACKEND_URL = `http://47.225.67.91:5001/users/`;
   
   try {
     const res = await fetch(BACKEND_URL);
