@@ -25,12 +25,22 @@ const PostsRoute = () => (
 );
 const ClubsRoute = () => (
   <ScrollView style={styles.clubContainer}>
-    
+    <ClubComponent id={'000001'} />
+    <View style={{ height: 20 }} />
+    <ClubComponent id={'000001'} />
+    <View style={{ height: 20 }} />
+    <ClubComponent id={'000001'} />
+    <View style={{ height: 100 }} />
   </ScrollView>
 );
 const RSVPsRoute = () => (
   <ScrollView style={styles.eventContainer}>
-    
+    <EventComponent id={'000001'} />
+    <View style={{ height: 20 }} />
+    <EventComponent id={'000002'} />
+    <View style={{ height: 20 }} />
+    <EventComponent id={'000003'} />
+    <View style={{ height: 100 }} />
   </ScrollView>
 );
 
@@ -46,9 +56,9 @@ export default function TabTwoScreen() {
   ];
 
   const renderScene = SceneMap({
-    rsvp: PostsRoute,
+    rsvp: RSVPsRoute,
     club: ClubsRoute,
-    post: RSVPsRoute,
+    post: PostsRoute,
   });
 
   return (
@@ -75,7 +85,7 @@ export default function TabTwoScreen() {
         <TouchableOpacity
           style={styles.postButtonContainer}
           onPress={() => {
-            router.push('/createPost');
+            //router.push('/createPost');
           }}
         >
           <ThemedText type="defaultSemiBold">New Post</ThemedText>
@@ -91,7 +101,7 @@ export default function TabTwoScreen() {
           renderTabBar={(props) => (
             <TabBar
               {...props}
-              style={{ backgroundColor: 'NOTHING' }}
+              style={{ backgroundColor: '#141618' }}
               indicatorStyle={{ backgroundColor: 'gold' }}
               activeColor={textColors()}
               inactiveColor='gray'

@@ -5,6 +5,7 @@ import ParallaxScrollView from '@/components/ParallaxScrollView';
 import { ThemedText } from '@/components/ThemedText';
 import { ThemedView } from '@/components/ThemedView';
 import Search from '@/components/Search';
+import { NewsComponent } from '@/components/NewsComponent';
 
 
 export default function HomeScreen() {
@@ -22,6 +23,7 @@ export default function HomeScreen() {
         <View style={styles.searchContainer}>
           <Search></Search>
         </View>
+        <NewsComponent id={'000001'}/>
       </ThemedView>
     </ParallaxScrollView>
   );
